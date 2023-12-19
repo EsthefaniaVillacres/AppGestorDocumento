@@ -1,0 +1,56 @@
+<div class="content">
+    <div [ngClass]="{'hide':accesoModo}"  class="contenedor">
+        <div  class="info">
+            <div class="info-detalle">
+                <h2>Bienvenido</h2>
+                <p>Para acceder a nuestros beneficios porfavor Inicia sessión</p>
+                <input type="button" (click)="cambiarAcceso()" value="Iniciar Sesión">
+            </div>
+        </div>
+        <div class="form-info">
+            <div class="form-info-detalle">
+                <h2>Datos de registro</h2>
+                <form class="form">
+                    <label for="">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" name="" placeholder="Nombre" id="">
+                    </label>
+                    <label for="">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" name="" placeholder="Correo Electrónico" id="">
+                    </label>
+                    <label for="">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="" placeholder="Contraseña" id="">
+                    </label>
+                    <input type="submit" value="Registrarse">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div [ngClass]="{'hide':!accesoModo}"  class="contenedor">
+        <div class="info">
+            <div class="info-detalle">
+                <h2>Bienvenido</h2>
+                <p>Si aún no eres parte del equipo porfavor registra tus datos, para solicitar un usuario para acceso</p>
+                <input type="button" (click)="cambiarAcceso()" value="Registro">
+            </div>
+        </div>
+        <div class="form-info">
+            <div class="form-info-detalle">
+                <h2>Datos de Sesión</h2>
+                <form class="form">
+                    <label for="">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" name="" placeholder="Correo Electrónico" id="">
+                    </label>
+                    <label for="">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="" placeholder="Contraseña" id="">
+                    </label>
+                    <input type="submit"  value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

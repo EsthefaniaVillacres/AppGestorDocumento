@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --packColor_back_1:#2f4f4f;
+    --packColor_color_1:white;
+
+    --packColor_back_2:white;
+    --packColor_color_2:black;
+
+    --packColor_back_3:#f5f5f5;
+    --packColor_color_3:rgb(100, 98, 98);
+    --packImagenGradiente:linear-gradient(120deg, #4ab18d 0, #3ba489 10%, #2e9583 20%, #258379 30%, #216f6b 40%, #1f5959 50%, #1e4446 60%, #1c3235 70%, #182325 80%, #141718 90%, #0e0a08 100%);
+}
