@@ -1,0 +1,41 @@
+.content{
+    /*height: 100vh;
+    width: 100vw;*/
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.cabecera{
+    height: 6%;
+    width: 100%;
+    
+}
+.contenido{
+
+    flex: 1;
+    width: 100%;
+    display: flex;
+
+}
+.menu{  
+    background-color:rgba(0, 0, 0, 0.9);
+    color: white;
+    width: 15%;
+    min-width: 200px;
+    
+}
+.contraer{
+    width: 3%;
+    min-width: 5px;
+}
+.vistas{
+    flex: 1;
+    margin: 2%px;
+    z-index: 1001;
+}
+.pie{
+    height: 8%;
+    width: 100%;
+
+}

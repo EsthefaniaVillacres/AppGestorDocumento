@@ -1,0 +1,14 @@
+<div class="content">
+    <div class="icono-menu" (click)="contraer()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="item" *ngFor="let data of listaMenu">
+        <div class="content-item" [ngClass]="{'seleccionado':data.Seleccionado}" [routerLink]="data.route" (click)="seleccionar(data)">
+            <i class="{{data.Logo}}" ></i>
+            <div class="texto" [ngClass]="{'contraer':contraer}">
+                <span>{{data.Nombre}}</span>
+            </div>
+        </div>
+    </div>
+
+</div>

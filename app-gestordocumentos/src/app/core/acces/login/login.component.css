@@ -105,7 +105,7 @@
     border-radius: 20px;
     
 }
-.form input[type="submit"]{
+.form input[type="button"]{
     background-color:var(--packColor_back_1);
     color:var(--packColor_color_1);
     border-radius: 20px;
@@ -117,7 +117,7 @@
     width: 98%;
 
 }
-.form input[type="submit"]:hover{
+.form input[type="button"]:hover{
     background-color: rgb(148, 146, 146);
     color: white;
 }
@@ -156,7 +156,7 @@
         padding: 20px;
         font-size:18px ;
     }
-    .form input[type="submit"]{
+    .form input[type="button"]{
         padding: 15px;
     }
 }

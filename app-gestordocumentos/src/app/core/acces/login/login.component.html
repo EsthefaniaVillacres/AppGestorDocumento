@@ -11,19 +11,21 @@
             <div class="form-info-detalle">
                 <h2>Datos de registro</h2>
                 <form class="form">
-                    <label for="">
+                    <label for="name">
                         <i class="fa-regular fa-user"></i>
-                        <input type="text" name="" placeholder="Nombre" id="">
+                        <input type="text" name="name" placeholder="Nombre" id="name" [(ngModel)]="dataRegister.name" >
                     </label>
-                    <label for="">
+                    <label for="emailr">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="email" name="" placeholder="Correo Electrónico" id="">
+                        <input type="email" name="emailr" placeholder="Correo Electrónico" id="emailr" [(ngModel)]="dataRegister.email">
                     </label>
-                    <label for="">
+                    <label for="passr">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" name="" placeholder="Contraseña" id="">
+                        <input type="password" name="passr" placeholder="Contraseña" id="passr" [(ngModel)]="dataRegister.password">
                     </label>
-                    <input type="submit" value="Registrarse">
+
+                    <input type="button"(click)="registrar(dataRegister)" value="Registrarse">
+                    
                 </form>
             </div>
         </div>
@@ -40,15 +42,15 @@
             <div class="form-info-detalle">
                 <h2>Datos de Sesión</h2>
                 <form class="form">
-                    <label for="">
+                    <label for="email">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="email" name="" placeholder="Correo Electrónico" id="">
+                        <input type="email" name="email" placeholder="Correo Electrónico" id="email"[(ngModel)]="dataLogin.email">
                     </label>
-                    <label for="">
+                    <label for="pass">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" name="" placeholder="Contraseña" id="">
+                        <input type="password" name="pass" placeholder="Contraseña" id="pass"[(ngModel)]="dataLogin.password">
                     </label>
-                    <input type="submit"  value="Login">
+                    <input type="button"  (click)="ingresar(dataLogin)" value="Login">
                 </form>
             </div>
         </div>
