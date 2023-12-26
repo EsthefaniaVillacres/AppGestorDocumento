@@ -1,0 +1,8 @@
+Creacion de servicio 
+ng g s servicios/api/user 
+creacion submodulos
+ng g m admin/modulos/user-admin --routing
+creacion  de componentes
+ng g c admin/modulos/user-admin/pag-user-admin --export
+ng g c admin/modulos/user-admin/componentes/tab-user-admin --export
+ng g c admin/modulos/user-admin/componentes/form-user-admin --export

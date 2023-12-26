@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagPrincipalAdminComponent } from './pag-principal-admin/pag-principal-admin.component';
 
 const routes: Routes = [
-  {path:'',component:PagPrincipalAdminComponent}
+  {path:'',component:PagPrincipalAdminComponent,children:[
+    {path:'users',loadChildren:()=>import('./modulos/user-admin/user-admin-routing.module').then((m)=>m.UserAdminRoutingModule)}
+  ]}
 ];
 
 @NgModule({

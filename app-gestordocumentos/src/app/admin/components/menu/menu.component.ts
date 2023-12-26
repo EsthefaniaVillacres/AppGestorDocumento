@@ -13,7 +13,7 @@ export class MenuComponent {
 
   llenarListaMenu() {
     this.listaMenu = [
-      { 'Id': 1, 'Nombre': 'Roles', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'roles' },
+      { 'Id': 1, 'Nombre': 'Usuarios', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'users' },
       { 'Id': 2, 'Nombre': 'Instituciones', 'Logo': 'fa-solid fa-building-columns', 'Seleccionado': false, 'route': 'instituciones' },
       { 'Id': 3, 'Nombre': 'Usuarios', 'Logo': 'fa-solid fa-users', 'Seleccionado': false, 'route': 'usuarios' },
       { 'Id': 3, 'Nombre': 'Segmentos', 'Logo': 'fa-solid fa-business-time', 'Seleccionado': false, 'route': 'segmentos' },
