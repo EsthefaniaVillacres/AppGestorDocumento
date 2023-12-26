@@ -33,5 +33,6 @@ export class MenuComponent {
   }
   ngOnInit() {
     this.llenarListaMenu()
+    console.log(this.listaMenu)
   }
 }

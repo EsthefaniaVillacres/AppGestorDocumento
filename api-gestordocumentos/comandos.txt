@@ -1,0 +1,7 @@
+Comandos
+Gestion 
+Creacion de controlador
+php artisan make:controller UserController
+metodos getAll,getAllByIdPerfil
+-Modificar las rutas en routes/api.php
+

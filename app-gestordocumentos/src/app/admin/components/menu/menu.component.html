@@ -5,7 +5,7 @@
     <div class="item" *ngFor="let data of listaMenu">
         <div class="content-item" [ngClass]="{'seleccionado':data.Seleccionado}" [routerLink]="data.route" (click)="seleccionar(data)">
             <i class="{{data.Logo}}" ></i>
-            <div class="texto" [ngClass]="{'contraer':contraer}">
+            <div class="texto" [ngClass]="{'contraer':contraerSelected}">
                 <span>{{data.Nombre}}</span>
             </div>
         </div>

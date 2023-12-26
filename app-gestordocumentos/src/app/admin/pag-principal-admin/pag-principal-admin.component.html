@@ -4,7 +4,7 @@
     </div>
     <div class="contenido">
         <div class="menu open" [ngClass]="{'contraer':contraerSelected}">
-            <app-menu></app-menu>
+            <app-menu (onClick)="contraer($event)"></app-menu>
         </div>
         <div class="vistas">
 
