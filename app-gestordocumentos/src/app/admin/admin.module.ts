@@ -28,6 +28,7 @@ import { CardModule } from 'primeng/card';
 import { SharedModule } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
 import { FacultyAdminModule } from './modulos/faculty-admin/faculty-admin.module';
+import { CareerAdminModule } from './modulos/career-admin/career-admin.module';
 
 
 @NgModule({
@@ -61,8 +62,8 @@ import { FacultyAdminModule } from './modulos/faculty-admin/faculty-admin.module
     ListboxModule,
     ReactiveFormsModule,
     UserAdminModule,
-    FacultyAdminModule
-
+    FacultyAdminModule,
+    CareerAdminModule
   ],
   exports: [
     PagPrincipalAdminComponent,
