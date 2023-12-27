@@ -5,3 +5,9 @@ php artisan make:controller UserController
 metodos getAll,getAllByIdPerfil
 -Modificar las rutas en routes/api.php
 
+Crud completo
+Creacion de la tabla
+php artisan make:migration create_faculty_table
+php artisan make:migration create_manage_faculty_table tabla intermedia entre facultades y usuarios
+migracion de la bd
+php artisan migrate
