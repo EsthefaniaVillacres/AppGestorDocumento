@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class CareerService {
 
-  private urlApi=config.apiUrl+'/api/career';
+  private urlApi=config.apiUrl+'/api/careers';
   constructor(private http:HttpClient,private authServices: AuthService) { }
   public getAll():Observable<any>{
     const token = this.authServices.getToken();

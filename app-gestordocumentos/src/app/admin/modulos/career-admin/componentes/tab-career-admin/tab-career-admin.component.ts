@@ -18,6 +18,7 @@ export class TabCareerAdminComponent {
 
   }
   ngOnInit() {
+
     this.getListData()
   }
   openNew() {
