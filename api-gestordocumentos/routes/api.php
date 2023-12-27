@@ -6,7 +6,9 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TemplateController;
 use App\Models\Career;
+use App\Models\TemplateCab;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -65,6 +67,19 @@ Route::prefix('students')->group(function(){
     Route::post('/',[StudentController::class,'create']);
     Route::put('/{id}',[StudentController::class,'update']);
     Route::delete('/{id}',[StudentController::class,'delete']);
+});
+// plantillas
+Route::prefix('templates')->group(function(){
+    Route::get('/',[TemplateController::class,'getAll']);
+    Route::get('/{id}',[TemplateController::class,'getDetByIdTemplateCab']);
+    Route::get('/onecab/{id}',[TemplateController::class,'getOneByIdTemplateCab']);
+    Route::get('/onedet/{id}',[TemplateController::class,'getOneByIdTemplateDet']);
+    Route::post('/cab',[TemplateController::class,'createCab']);
+    Route::post('/det',[TemplateController::class,'createDet']);
+    Route::put('/cab/{id}',[TemplateController::class,'updateCab']);
+    Route::put('/det/{id}',[TemplateController::class,'updateDet']);
+    Route::delete('/cab/{id}',[TemplateController::class,'deleteCab']);
+    Route::delete('/det/{id}',[TemplateController::class,'deleteDet']);
 });
 
 

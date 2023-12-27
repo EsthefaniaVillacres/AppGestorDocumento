@@ -25,5 +25,21 @@ Modelo
 php artisan make:model Student
 Controlador
 php artisan make:controller StudentController
+----
+Crud completo plantilla cabecera y detalle
+Creacion de la tabla
+php artisan make:migration create_templateCab_table
+migracion de la bd
+php artisan migrate
+
+Creacion de la tabla
+php artisan make:migration create_template_det_table
+php artisan migrate
+
+Modelo
+php artisan make:model TemplateCab
+php artisan make:model TemplateDet
+Controlador
+php artisan make:controller TemplateController
 
 
