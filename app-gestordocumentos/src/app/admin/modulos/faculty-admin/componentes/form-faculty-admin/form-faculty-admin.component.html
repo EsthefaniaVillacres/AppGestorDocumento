@@ -1,1 +1,24 @@
-<p>form-faculty-admin works!</p>
+<p-dialog [(visible)]="dataDialog"
+ [style]="{ width: '450px' }"
+header="Detalles de registro" 
+[modal]="true"
+(onHide)="hideDialog()"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="code">Código</label>
+            <input type="text" pInputText id="code" [(ngModel)]="data.Codigo" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Codigo">Código es requerido.</small>
+        </div>
+        <div class="field">
+            <label for="name">Nombre</label>
+            <input type="text" pInputText id="name" [(ngModel)]="data.Nombre" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Nombre">Nombre es requerido.</small>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="save()"></button>
+    </ng-template>
+</p-dialog>

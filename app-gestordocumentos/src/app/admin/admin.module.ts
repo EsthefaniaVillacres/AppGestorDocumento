@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardModule } from 'primeng/card';
 import { SharedModule } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
+import { FacultyAdminModule } from './modulos/faculty-admin/faculty-admin.module';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { ListboxModule } from 'primeng/listbox';
     SharedModule,
     ListboxModule,
     ReactiveFormsModule,
-    UserAdminModule
+    UserAdminModule,
+    FacultyAdminModule
 
   ],
   exports: [
