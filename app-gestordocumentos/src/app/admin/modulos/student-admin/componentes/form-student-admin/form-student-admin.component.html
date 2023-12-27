@@ -1,0 +1,45 @@
+<p-dialog [(visible)]="dataDialog"
+ [style]="{ width: '450px' }"
+header="Detalles de registro" 
+[modal]="true"
+(onHide)="hideDialog()"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="code">Cédula</label>
+            <input type="text" pInputText id="code" [(ngModel)]="data.Cedula" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Cedula">Cedula es requerido.</small>
+        </div>
+        <div class="field">
+            <label for="name">Nombre</label>
+            <input type="text" pInputText id="name" [(ngModel)]="data.Nombre" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Nombre">Nombre es requerido.</small>
+        </div>
+        <div class="field">
+            <label for="lastname">Apellido</label>
+            <input type="text" pInputText id="lastname" [(ngModel)]="data.Apellido" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Apellido">Apellido es requerido.</small>
+        </div>
+        <div class="field">
+            <label for="phone">Telefono</label>
+            <input type="text" pInputText id="phone" [(ngModel)]="data.Telefono" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Telefono">Telefono es requerido.</small>
+        </div>
+        <div class="field">
+            <label for="address">Dirección</label>
+            <input type="text" pInputText id="address" [(ngModel)]="data.Direccion" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Direccion">Dirección es requerido.</small>
+        </div>
+        <div class="field">
+            <label for="email">Correo Electrónico</label>
+            <input type="text" pInputText id="email" [(ngModel)]="data.Correo" required autofocus />
+            <small class="p-error" *ngIf="submitted && !data.Correo">Correo Electrónico es requerido.</small>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="save()"></button>
+    </ng-template>
+</p-dialog>
+

@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AdminRoutingModule } from './admin-routing.module';
-import { PagPrincipalAdminComponent } from './pag-principal-admin/pag-principal-admin.component';
-import { CabeceraComponent } from './components/cabecera/cabecera.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { UserAdminModule } from './modulos/user-admin/user-admin.module';
+import { StudentAdminRoutingModule } from './student-admin-routing.module';
 //COMPONENTES PRIME NG
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -21,26 +17,25 @@ import { TagModule } from 'primeng/tag';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardModule } from 'primeng/card';
 import { SharedModule } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
-import { FacultyAdminModule } from './modulos/faculty-admin/faculty-admin.module';
-import { CareerAdminModule } from './modulos/career-admin/career-admin.module';
-import { StudentAdminModule } from './modulos/student-admin/student-admin.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import { PagStudentAdminComponent } from './pag-student-admin/pag-student-admin.component';
+import { TabStudentAdminComponent } from './componentes/tab-student-admin/tab-student-admin.component';
+import { FormStudentAdminComponent } from './componentes/form-student-admin/form-student-admin.component';
 
 @NgModule({
   declarations: [
-    PagPrincipalAdminComponent,
-    CabeceraComponent,
-    MenuComponent
+    PagStudentAdminComponent,
+    TabStudentAdminComponent,
+    FormStudentAdminComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    StudentAdminRoutingModule,
     ToastModule,
     ToolbarModule,
     ButtonModule,
@@ -55,22 +50,18 @@ import { StudentAdminModule } from './modulos/student-admin/student-admin.module
     RadioButtonModule,
     InputNumberModule,
     ConfirmDialogModule,
-    FormsModule,
     RatingModule,
-    BrowserAnimationsModule,
     CardModule,
     SharedModule,
     ListboxModule,
-    ReactiveFormsModule,
-    UserAdminModule,
-    FacultyAdminModule,
-    CareerAdminModule,
-    StudentAdminModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
-    PagPrincipalAdminComponent,
-    CabeceraComponent,
-    MenuComponent
+    PagStudentAdminComponent,
+    TabStudentAdminComponent,
+    FormStudentAdminComponent
   ]
 })
-export class AdminModule { }
+export class StudentAdminModule { }
