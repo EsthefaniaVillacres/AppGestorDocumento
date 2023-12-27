@@ -18,4 +18,25 @@ export class UserService {
     })
     return this.http.get<any>(this.urlApi,{ headers });
   }
+  public create(data:any):Observable<any>{
+    const token = this.authServices.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    })
+    return this.http.post<any>(this.urlApi,data,{ headers });
+  }
+  public update(data:any,id:string):Observable<any>{
+    const token = this.authServices.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    })
+    return this.http.put<any>(this.urlApi+'/'+id,data,{ headers });
+  }
+  public delete(id:string):Observable<any>{
+    const token = this.authServices.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    })
+    return this.http.delete<any>(this.urlApi+'/'+id,{ headers });
+  }
 }
