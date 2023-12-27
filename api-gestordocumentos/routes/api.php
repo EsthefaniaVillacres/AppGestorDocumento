@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\StudentController;
 use App\Models\Career;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,14 @@ Route::prefix('careers')->group(function(){
     Route::post('/',[CareerController::class,'create']);
     Route::put('/{id}',[CareerController::class,'update']);
     Route::delete('/{id}',[CareerController::class,'delete']);
+});
+// estudiantes
+Route::prefix('students')->group(function(){
+    Route::get('/',[StudentController::class,'getAll']);
+    Route::get('/{id}',[StudentController::class,'getOneById']);
+    Route::post('/',[StudentController::class,'create']);
+    Route::put('/{id}',[StudentController::class,'update']);
+    Route::delete('/{id}',[StudentController::class,'delete']);
 });
 
 

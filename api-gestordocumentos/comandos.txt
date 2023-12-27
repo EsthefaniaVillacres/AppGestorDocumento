@@ -15,4 +15,15 @@ php artisan make:model Career
 Controlador
 php artisan make:controller CareerController
 
+---
+Crud completo ESTUDIANTES
+Creacion de la tabla
+php artisan make:migration create_student_table
+migracion de la bd
+php artisan migrate
+Modelo
+php artisan make:model Student
+Controlador
+php artisan make:controller StudentController
+
 
