@@ -5,7 +5,9 @@ import { PagPrincipalAdminComponent } from './pag-principal-admin/pag-principal-
 const routes: Routes = [
   {path:'',component:PagPrincipalAdminComponent,children:[
     {path:'users',loadChildren:()=>import('./modulos/user-admin/user-admin-routing.module').then((m)=>m.UserAdminRoutingModule)},
-    {path:'faculties',loadChildren:()=>import('./modulos/faculty-admin/faculty-admin-routing.module').then((m)=>m.FacultyAdminRoutingModule)}
+    {path:'faculties',loadChildren:()=>import('./modulos/faculty-admin/faculty-admin-routing.module').then((m)=>m.FacultyAdminRoutingModule)},
+    {path:'careers',loadChildren:()=>import('./modulos/career-admin/career-admin-routing.module').then((m)=>m.CareerAdminRoutingModule)}
+
 
   ]}
 ];
