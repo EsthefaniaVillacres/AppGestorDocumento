@@ -6,6 +6,7 @@ creacion  de componentes
 ng g c admin/modulos/user-admin/pag-user-admin --export
 ng g c admin/modulos/user-admin/componentes/tab-user-admin --export
 ng g c admin/modulos/user-admin/componentes/form-user-admin --export
+--------
 creacion de servicios de facultades
 ng g s servicios/api/faculty 
 creacion submodulos
@@ -14,3 +15,12 @@ creacion  de componentes
 ng g c admin/modulos/faculty-admin/pag-faculty-admin --export
 ng g c admin/modulos/faculty-admin/componentes/tab-faculty-admin --export
 ng g c admin/modulos/faculty-admin/componentes/form-faculty-admin --export
+----
+creacion de servicios de carreras
+ng g s servicios/api/career 
+creacion submodulos
+ng g m admin/modulos/career-admin --routing
+creacion  de componentes
+ng g c admin/modulos/career-admin/pag-career-admin --export
+ng g c admin/modulos/career-admin/componentes/tab-career-admin --export
+ng g c admin/modulos/career-admin/componentes/form-career-admin --export
