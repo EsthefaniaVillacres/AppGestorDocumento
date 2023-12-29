@@ -33,3 +33,13 @@ creacion  de componentes
 ng g c admin/modulos/student-admin/pag-student-admin --export
 ng g c admin/modulos/student-admin/componentes/tab-student-admin --export
 ng g c admin/modulos/student-admin/componentes/form-student-admin --export
+
+Creacion de plantillas
+ng g s servicios/api/template
+ng g m admin/modulos/template-admin --routing
+creacion  de componentes
+ng g c admin/modulos/template-admin/pag-template-admin --export
+ng g c admin/modulos/template-admin/componentes/cab-template-admin --export
+ng g c admin/modulos/template-admin/componentes/det-template-admin --export
+ng g c admin/modulos/template-admin/componentes/form-template-admin --export
+

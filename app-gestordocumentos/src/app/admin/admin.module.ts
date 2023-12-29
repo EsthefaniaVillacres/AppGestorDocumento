@@ -30,6 +30,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { FacultyAdminModule } from './modulos/faculty-admin/faculty-admin.module';
 import { CareerAdminModule } from './modulos/career-admin/career-admin.module';
 import { StudentAdminModule } from './modulos/student-admin/student-admin.module';
+import { TemplateAdminModule } from './modulos/template-admin/template-admin.module';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { StudentAdminModule } from './modulos/student-admin/student-admin.module
     UserAdminModule,
     FacultyAdminModule,
     CareerAdminModule,
-    StudentAdminModule
+    StudentAdminModule,
+    TemplateAdminModule
   ],
   exports: [
     PagPrincipalAdminComponent,

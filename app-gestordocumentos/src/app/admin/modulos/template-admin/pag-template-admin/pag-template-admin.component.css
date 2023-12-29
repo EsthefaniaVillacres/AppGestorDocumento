@@ -1,0 +1,38 @@
+.panel-left {
+    background-color: var(--backgroungPanel);
+    color: black;
+    width: 100%;
+}
+.panel-right {
+    background-color: var(--backgroungPanel);
+    color: black;
+    width: 100%;
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 15px;
+    padding: 2px;
+    align-items: center;
+}
+.content{
+    margin: 0 15px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5px;
+    padding: 0;
+}
+.options button{
+    margin: 0 5px;
+}
+
+.card {
+    background: #ffffff;
+    color: #4b5563;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    padding: 10px;
+    margin: 5px;
+}

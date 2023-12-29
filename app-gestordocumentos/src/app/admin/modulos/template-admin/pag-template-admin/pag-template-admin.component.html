@@ -1,0 +1,98 @@
+<div class="card">
+    <p-splitter [style]="{ height: '650px' }" styleClass="mb-5">
+        <ng-template pTemplate>
+            <div class="panel-left">
+                <div class="head">
+                    <h3>Plantillas</h3>
+                    <button pButton pRipple  icon="pi pi-plus" class=" p-button-rounded p-button-success  mr-2"
+                        (click)="openFormTemplate()"></button>
+                </div>
+                <div class="content">
+                    <p-card>
+                        <div class="card" *ngFor="let row of listTemplate">
+                            <div class="row">
+                                <p>{{row.Nombre}}</p>
+                                <div class="options">
+                                    <button pButton pRipple icon="pi pi-eye"
+                                        class="p-button-rounded p-button-info mr-2"
+                                        (click)="getListDetail(row.Id,row.Nombre)"></button>
+                                    <button pButton pRipple icon="pi pi-pencil"
+                                        class="p-button-rounded p-button-success mr-2"
+                                        (click)="editTemplate(row)"></button>
+                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                        (click)="deleteTemplate(row)"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <ng-container *ngIf="mostrar">
+                <div class="panel-right">
+                    <div class="head">
+                        <h3>Carpetas-{{nameTemplateSelected}}</h3>
+                        <button pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-success mr-2"
+                            (click)="openFormDetail()"></button>
+                    </div>
+                    <div class="content">
+                        <p-card>
+                            <div class="card" *ngFor="let row of listDetail">
+                                <div class="row">
+                                    <p>{{row.Orden}}</p>
+                                    <p>{{row.NombreCarpeta}}</p>
+                                    <div class="options">
+                                        <button pButton pRipple icon="pi pi-pencil"
+                                            class="p-button-rounded p-button-success mr-2"
+                                            (click)="editDetail(row)"></button>
+                                        <button pButton pRipple icon="pi pi-trash"
+                                            class="p-button-rounded p-button-warning"
+                                            (click)="deleteDetail(row)"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </p-card>
+                    </div>
+                </div>
+            </ng-container>
+
+        </ng-template>
+    </p-splitter>
+</div>
+<p-dialog [(visible)]="templateDialog" [style]="{ width: '450px' }" header="Nueva Plantilla" [modal]="true"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="name">Nombre</label>
+            <input type="text" pInputText id="name" [(ngModel)]="template.Nombre" required autofocus />
+            <small class="p-error" *ngIf="submitted && !template.Nombre">Nombre es requerido.</small>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+            (click)="hideDialogTemplate()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveTemplate()"></button>
+    </ng-template>
+</p-dialog>
+<p-dialog [(visible)]="detailDialog" [style]="{ width: '450px' }" header="Nueva Carpeta" [modal]="true"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="order">Orden</label>
+            <input type="text" pInputText [(ngModel)]="detail.Orden" required autofocus />
+            <small class="p-error" *ngIf="submitted && !detail.Orden">Orden es requerido.</small>
+        </div>
+        <div class="field">
+            <label for="name">Nombre</label>
+            <input type="text" pInputText [(ngModel)]="detail.NombreCarpeta" required autofocus />
+            <small class="p-error" *ngIf="submitted && !detail.NombreCarpeta">Nombre es requerido.</small>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+            (click)="hideDialogDetail()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveDetail()"></button>
+    </ng-template>
+</p-dialog>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
