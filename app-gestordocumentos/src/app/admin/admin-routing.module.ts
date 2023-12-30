@@ -8,7 +8,9 @@ const routes: Routes = [
     {path:'faculties',loadChildren:()=>import('./modulos/faculty-admin/faculty-admin-routing.module').then((m)=>m.FacultyAdminRoutingModule)},
     {path:'careers',loadChildren:()=>import('./modulos/career-admin/career-admin-routing.module').then((m)=>m.CareerAdminRoutingModule)},
     {path:'students',loadChildren:()=>import('./modulos/student-admin/student-admin-routing.module').then((m)=>m.StudentAdminRoutingModule)},
-    {path:'templates',loadChildren:()=>import('./modulos/template-admin/template-admin-routing.module').then((m)=>m.TemplateAdminRoutingModule)}
+    {path:'templates',loadChildren:()=>import('./modulos/template-admin/template-admin-routing.module').then((m)=>m.TemplateAdminRoutingModule)},
+    {path:'managers',loadChildren:()=>import('./modulos/manage-admin/manage-admin-routing.module').then((m)=>m.ManageAdminRoutingModule)},
+    {path:'secretaries',loadChildren:()=>import('./modulos/secretary-admin/secretary-admin-routing.module').then((m)=>m.SecretaryAdminRoutingModule)}
 
 
   ]}

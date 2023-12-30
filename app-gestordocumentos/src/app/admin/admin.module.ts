@@ -31,6 +31,8 @@ import { FacultyAdminModule } from './modulos/faculty-admin/faculty-admin.module
 import { CareerAdminModule } from './modulos/career-admin/career-admin.module';
 import { StudentAdminModule } from './modulos/student-admin/student-admin.module';
 import { TemplateAdminModule } from './modulos/template-admin/template-admin.module';
+import { ManageAdminModule } from './modulos/manage-admin/manage-admin.module';
+import { SecretaryAdminModule } from './modulos/secretary-admin/secretary-admin.module';
 
 
 @NgModule({
@@ -67,7 +69,9 @@ import { TemplateAdminModule } from './modulos/template-admin/template-admin.mod
     FacultyAdminModule,
     CareerAdminModule,
     StudentAdminModule,
-    TemplateAdminModule
+    TemplateAdminModule,
+    ManageAdminModule,
+    SecretaryAdminModule
   ],
   exports: [
     PagPrincipalAdminComponent,

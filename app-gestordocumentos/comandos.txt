@@ -7,6 +7,19 @@ ng g c admin/modulos/user-admin/pag-user-admin --export
 ng g c admin/modulos/user-admin/componentes/tab-user-admin --export
 ng g c admin/modulos/user-admin/componentes/form-user-admin --export
 --------
+administradores
+ng g m admin/modulos/manage-admin --routing
+ng g c admin/modulos/manage-admin/pag-manage-admin --export
+ng g c admin/modulos/manage-admin/componentes/tab-manage-admin --export
+ng g c admin/modulos/manage-admin/componentes/form-manage-admin --export
+
+secretarias
+ng g m admin/modulos/secretary-admin --routing
+ng g c admin/modulos/secretary-admin/pag-secretary-admin --export
+ng g c admin/modulos/secretary-admin/componentes/tab-secretary-admin --export
+ng g c admin/modulos/secretary-admin/componentes/form-secretary-admin --export
+
+--------
 creacion de servicios de facultades
 ng g s servicios/api/faculty 
 creacion submodulos
@@ -43,3 +56,8 @@ ng g c admin/modulos/template-admin/componentes/cab-template-admin --export
 ng g c admin/modulos/template-admin/componentes/det-template-admin --export
 ng g c admin/modulos/template-admin/componentes/form-template-admin --export
 
+Manage facultades
+ng g s servicios/api/managefaculty
+ng g c admin/modulos/faculty-admin/componentes/manage-faculty-admin --export
+manage usuarios
+ng g c admin/modulos/manage-admin/componentes/manage-user-admin --export

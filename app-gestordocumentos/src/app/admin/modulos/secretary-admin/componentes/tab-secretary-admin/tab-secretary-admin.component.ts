@@ -1,23 +1,21 @@
 import { Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { FacultyService } from 'src/app/servicios/api/faculty.service';
+import { UserService } from 'src/app/servicios/api/user.service';
 
 @Component({
-  selector: 'app-tab-faculty-admin',
-  templateUrl: './tab-faculty-admin.component.html',
-  styleUrls: ['./tab-faculty-admin.component.css'],
+  selector: 'app-tab-secretary-admin',
+  templateUrl: './tab-secretary-admin.component.html',
+  styleUrls: ['./tab-secretary-admin.component.css'],
   providers: [MessageService, ConfirmationService]
 })
-export class TabFacultyAdminComponent {
+export class TabSecretaryAdminComponent {
   selectedListData: any
   dataDialog: boolean = false
   data: any
   mostrar: boolean = false
-  mostrarUsuarios: boolean = false
   listData: any
-  visible:boolean=false
-
-  constructor(private facultyService: FacultyService, private confirmationService: ConfirmationService, private messageService: MessageService) {
+  IdPerfil:any=localStorage.getItem('IdPerfil')
+  constructor(private userService: UserService, private confirmationService: ConfirmationService, private messageService: MessageService) {
 
   }
   ngOnInit() {
@@ -34,13 +32,8 @@ export class TabFacultyAdminComponent {
     this.dataDialog = false
     this.getListData()
   }
-  hideDialogManage(){
-    this.visible=false
-    this.mostrarUsuarios=false
-
-  }
   getListData() {
-    this.facultyService.getAll().subscribe(result => {
+    this.userService.getAllByIdPerfil(this.IdPerfil).subscribe(result => {
       this.listData = result
 
     })
@@ -52,7 +45,7 @@ export class TabFacultyAdminComponent {
   }
   deleteRow(row: any) {
     this.confirmationService.confirm({
-      message: '¿Esta seguro que desea eliminar el registro: ' + row.Codigo + '?',
+      message: '¿Esta seguro que desea eliminar el registro: ' + row.name + '?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
@@ -62,15 +55,9 @@ export class TabFacultyAdminComponent {
     });
   }
   delete(row: any) {
-    this.facultyService.delete(row.Id).subscribe(result => {
+    this.userService.delete(row.id).subscribe(result => {
       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Registro eliminado', life: 3000 });
       this.getListData()
     })
-  }
-  asignedManager(row:any){
-    this.data={...row}
-    this.visible=true
-    this.mostrarUsuarios=true
-
   }
 }

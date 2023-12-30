@@ -30,7 +30,9 @@ registrar(dato:any){
 ingresar(dato:any){
 this.authService.login(dato).subscribe(response=>{
   localStorage.setItem('token', response.token);
+  localStorage.setItem('IdPerfil',response.dato.IdPerfil);
   this.router.navigate(['/admin']);
+  
 } )
 }
 

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FacultyAdminRoutingModule } from './faculty-admin-routing.module';
-import { PagFacultyAdminComponent } from './pag-faculty-admin/pag-faculty-admin.component';
-import { TabFacultyAdminComponent } from './componentes/tab-faculty-admin/tab-faculty-admin.component';
-import { FormFacultyAdminComponent } from './componentes/form-faculty-admin/form-faculty-admin.component';
+import { SecretaryAdminRoutingModule } from './secretary-admin-routing.module';
+import { PagSecretaryAdminComponent } from './pag-secretary-admin/pag-secretary-admin.component';
+import { TabSecretaryAdminComponent } from './componentes/tab-secretary-admin/tab-secretary-admin.component';
+import { FormSecretaryAdminComponent } from './componentes/form-secretary-admin/form-secretary-admin.component';
 //COMPONENTES PRIME NG
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -25,20 +25,17 @@ import { CardModule } from 'primeng/card';
 import { SharedModule } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
-import { ManageFacultyAdminComponent } from './componentes/manage-faculty-admin/manage-faculty-admin.component';
-import { SplitterModule } from 'primeng/splitter';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    PagFacultyAdminComponent,
-    TabFacultyAdminComponent,
-    FormFacultyAdminComponent,
-    ManageFacultyAdminComponent
+    PagSecretaryAdminComponent,
+    TabSecretaryAdminComponent,
+    FormSecretaryAdminComponent
   ],
   imports: [
     CommonModule,
-    FacultyAdminRoutingModule,
+    SecretaryAdminRoutingModule,
     ToastModule,
     ToolbarModule,
     ButtonModule,
@@ -59,14 +56,12 @@ import { SplitterModule } from 'primeng/splitter';
     ListboxModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
-    SplitterModule
+    ReactiveFormsModule
   ],
   exports: [
-    PagFacultyAdminComponent,
-    TabFacultyAdminComponent,
-    FormFacultyAdminComponent,
-    ManageFacultyAdminComponent
+    PagSecretaryAdminComponent,
+    TabSecretaryAdminComponent,
+    FormSecretaryAdminComponent
   ]
 })
-export class FacultyAdminModule { }
+export class SecretaryAdminModule { }

@@ -13,7 +13,7 @@
         </ng-template>
     </p-toolbar>
 
-    <p-table #dt [value]="listData" [rows]="10" [paginator]="true" [globalFilterFields]="['Codigo', 'Nombre']"
+    <p-table #dt [value]="listData" [rows]="10" [paginator]="true" [globalFilterFields]="['name', 'email']"
         [tableStyle]="{ 'min-width': '75rem' }" [(selection)]="selectedListData" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} registros"
         [showCurrentPageReport]="true">
@@ -29,23 +29,22 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="code" style="min-width:15rem">Código <p-sortIcon field="code"></p-sortIcon></th>
                 <th pSortableColumn="name" style="min-width:15rem">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="email" style="min-width:15rem">Email <p-sortIcon field="email"></p-sortIcon></th>
                 <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-row>
             <tr>
-                <td>{{ row.Codigo }}</td>
-                <td>{{ row.Nombre }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.email }}</td>
                 <td>
-                    <button pButton pRipple icon="pi pi-users" class="p-button-rounded p-button-info"
+                    <button pButton pRipple icon="pi pi-building" class="p-button-rounded p-button-info"
                         (click)="asignedManager(row)"></button>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
                         (click)="edit(row)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
                         (click)="deleteRow(row)"></button>
-
                 </td>
             </tr>
         </ng-template>
@@ -55,18 +54,13 @@
     </p-table>
 </div>
 <ng-container *ngIf="mostrar">
-    <app-form-faculty-admin 
-    [data]="data" 
-    [dataDialog]="dataDialog" 
-    (onClick)="hideDialog()"
-    ></app-form-faculty-admin>
+    <app-form-manage-admin [data]="data" [dataDialog]="dataDialog" (onClick)="hideDialog()"></app-form-manage-admin>
 </ng-container>
-<ng-container *ngIf="mostrarUsuarios">
-    <app-manage-faculty-admin
-    [visible]="visible"
-    [data]="data"
-    (onClick)="hideDialogManage()"
-    ></app-manage-faculty-admin>
+<ng-container *ngIf="mostrarFacultades">
+    <app-manage-user-admin
+     [visible]="visible" 
+     [data]="data"
+     (onClick)="hideDialogManage()">
+    </app-manage-user-admin>
 </ng-container>
-
 <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

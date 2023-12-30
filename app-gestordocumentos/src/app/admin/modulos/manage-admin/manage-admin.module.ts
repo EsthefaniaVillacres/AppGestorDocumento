@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FacultyAdminRoutingModule } from './faculty-admin-routing.module';
-import { PagFacultyAdminComponent } from './pag-faculty-admin/pag-faculty-admin.component';
-import { TabFacultyAdminComponent } from './componentes/tab-faculty-admin/tab-faculty-admin.component';
-import { FormFacultyAdminComponent } from './componentes/form-faculty-admin/form-faculty-admin.component';
+import { ManageAdminRoutingModule } from './manage-admin-routing.module';
+import { PagManageAdminComponent } from './pag-manage-admin/pag-manage-admin.component';
+import { TabManageAdminComponent } from './componentes/tab-manage-admin/tab-manage-admin.component';
+import { FormManageAdminComponent } from './componentes/form-manage-admin/form-manage-admin.component';
 //COMPONENTES PRIME NG
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -25,20 +25,20 @@ import { CardModule } from 'primeng/card';
 import { SharedModule } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
-import { ManageFacultyAdminComponent } from './componentes/manage-faculty-admin/manage-faculty-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ManageUserAdminComponent } from './componentes/manage-user-admin/manage-user-admin.component';
 import { SplitterModule } from 'primeng/splitter';
 
 @NgModule({
   declarations: [
-    PagFacultyAdminComponent,
-    TabFacultyAdminComponent,
-    FormFacultyAdminComponent,
-    ManageFacultyAdminComponent
+    PagManageAdminComponent,
+    TabManageAdminComponent,
+    FormManageAdminComponent,
+    ManageUserAdminComponent
   ],
   imports: [
     CommonModule,
-    FacultyAdminRoutingModule,
+    ManageAdminRoutingModule,
     ToastModule,
     ToolbarModule,
     ButtonModule,
@@ -63,10 +63,10 @@ import { SplitterModule } from 'primeng/splitter';
     SplitterModule
   ],
   exports: [
-    PagFacultyAdminComponent,
-    TabFacultyAdminComponent,
-    FormFacultyAdminComponent,
-    ManageFacultyAdminComponent
+    PagManageAdminComponent,
+    TabManageAdminComponent,
+    FormManageAdminComponent,
+    ManageUserAdminComponent
   ]
 })
-export class FacultyAdminModule { }
+export class ManageAdminModule { }
