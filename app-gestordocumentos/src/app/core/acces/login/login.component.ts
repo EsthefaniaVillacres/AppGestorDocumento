@@ -11,6 +11,7 @@ export class LoginComponent {
   accesoModo:boolean=true
   dataRegister:any={name:'',email:'',password:''}
   dataLogin:any={email:'',password:''}
+  
 
 constructor(private authService: AuthService,
             private router: Router){
@@ -31,6 +32,9 @@ ingresar(dato:any){
 this.authService.login(dato).subscribe(response=>{
   localStorage.setItem('token', response.token);
   localStorage.setItem('IdPerfil',response.dato.IdPerfil);
+  localStorage.setItem('dato',response.dato.id);
+
+  
   this.router.navigate(['/admin']);
   
 } )

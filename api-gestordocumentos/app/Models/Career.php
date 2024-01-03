@@ -10,6 +10,6 @@ class Career extends Model
     use HasFactory;
     protected $table = "career";
     protected $primaryKey='Id';
-    protected $fillable=['Codigo','Nombre','Estado'];
+    protected $fillable=['IdFaculty','Codigo','Nombre','Estado'];
     public $timestamps=false;
 }

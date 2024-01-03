@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { CareerService } from 'src/app/servicios/api/career.service';
+import { FacultyService } from 'src/app/servicios/api/faculty.service';
 
 @Component({
   selector: 'app-form-career-admin',
@@ -12,26 +13,35 @@ export class FormCareerAdminComponent {
   @Input() dataDialog!: boolean
   @Output() onClick: EventEmitter<any> = new EventEmitter<any>()
   submitted: boolean = false
+  IdUser: any = localStorage.getItem('dato')
+  faculties: any
+  selectedFaculty: any
 
-  constructor(private careerService: CareerService, private messageService: MessageService) {
-
-
-  }
+  constructor(private careerService: CareerService, private messageService: MessageService, private facultyServices: FacultyService) { }
   ngOnInit() {
-
+    this.getFacultiesByUser()
   }
   hideDialog() {
     this.onClick.emit()
     this.dataDialog = false
-    this.submitted = false
-
-
+   this.submitted = false
   }
-
+  showDialog(){
+    if (this.data.IdFaculty) {
+      this.selectedFaculty={Id:this.data.IdFaculty, Nombre:this.data.Facultad}
+    }
+    
+  }
+  getFacultiesByUser() {
+    this.facultyServices.getAllByUser(this.IdUser).subscribe(result => {
+      this.faculties = result
+    })
+  }
 
   save() {
     this.submitted = true;
     if (this.data.Codigo?.trim()) {
+      this.data.IdFaculty=this.selectedFaculty.Id
       if (this.data.Id) {
         this.update(this.data);
       } else {

@@ -28,6 +28,7 @@
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="code" style="min-width:15rem">Código <p-sortIcon field="code"></p-sortIcon></th>
+                <th pSortableColumn="faculty" style="min-width:15rem">Facultad <p-sortIcon field="faculty"></p-sortIcon></th>
                 <th pSortableColumn="name" style="min-width:15rem">Nombre <p-sortIcon field="name"></p-sortIcon></th>
                 <th></th>
             </tr>
@@ -35,6 +36,7 @@
         <ng-template pTemplate="body" let-row>
             <tr>
                 <td>{{ row.Codigo }}</td>
+                <td>{{ row.Facultad }}</td>
                 <td>{{ row.Nombre }}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(row)"></button>

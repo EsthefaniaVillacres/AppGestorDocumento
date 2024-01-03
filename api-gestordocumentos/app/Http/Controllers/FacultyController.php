@@ -22,6 +22,19 @@ class FacultyController extends Controller
             return response()->json(['estado' => false, 'mensajeErrores' => $th->getMessage()], 500);
         }
     }
+    public function getAllByUser($id)
+    {
+        try {
+            $facultad = Faculty::whereIn('Id', function ($query) use ($id) {
+                $query->select('IdFaculty')
+                    ->from('manage_faculty')
+                    ->where('IdUser', $id);
+            })->get();
+            return response()->json($facultad);
+        } catch (\Throwable $th) {
+            return response()->json(['estado' => false, 'mensajeErrores' => $th->getMessage()], 500);
+        }
+    }
     public function create(Request $request)
     {
         try {

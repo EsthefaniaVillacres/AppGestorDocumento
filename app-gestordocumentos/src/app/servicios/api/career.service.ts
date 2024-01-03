@@ -19,6 +19,13 @@ export class CareerService {
     })
     return this.http.get<any>(this.urlApi,{ headers });
   }
+  public getAllByUser(id:any):Observable<any>{
+    const token = this.authServices.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    })
+    return this.http.get<any>(this.urlApi+'/user/'+id,{ headers });
+  }
   public create(data:any):Observable<any>{
     const token = this.authServices.getToken();
     const headers = new HttpHeaders({

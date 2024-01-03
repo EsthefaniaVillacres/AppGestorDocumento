@@ -8,15 +8,34 @@ class CareerController extends Controller
 {
      public function getAll()
     {
-        $carreras = Career::all();
+        $carreras = Career::select('faculty.Nombre as Facultad', 'career.*')
+        ->join('faculty','career.IdFaculty','faculty.Id')
+        ->get();
         return response()->json($carreras);
     }
-   
     public function getOneById($id)
     {
         try {
-            $carrera = Career::find($id);
+            $carrera = Career::select('faculty.Nombre as Facultad', 'career.*')
+            ->join('faculty','career.IdFaculty','faculty.Id')
+            ->where('career.Id','=',$id)
+            ->get();
             return response()->json(['estado' => true, 'dato' => $carrera], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['estado' => false, 'mensajeErrores' => $th->getMessage()], 500);
+        }
+    }
+    public function getAllByUser($id)
+    {
+        try {
+            $facultad = Career::Select('faculty.Nombre as Facultad', 'career.*')
+            ->whereIn('IdFaculty', function ($query) use ($id) {
+                $query->select('IdFaculty')
+                    ->from('manage_faculty')
+                    ->where('IdUser', $id);
+            }) ->join('faculty','career.IdFaculty','faculty.Id')
+            ->get();
+            return response()->json($facultad);
         } catch (\Throwable $th) {
             return response()->json(['estado' => false, 'mensajeErrores' => $th->getMessage()], 500);
         }

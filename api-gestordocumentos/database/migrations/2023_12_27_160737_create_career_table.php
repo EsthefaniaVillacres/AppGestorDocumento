@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('career', function (Blueprint $table) {
             $table->id('Id');
+            $table->number('IdFaculty');
             $table->string('Codigo',15)->unique();
             $table->string('Nombre',150);
             $table->string('Estado',15)->default('Activo'); 

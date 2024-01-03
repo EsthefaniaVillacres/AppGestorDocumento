@@ -49,6 +49,7 @@ Route::prefix('users')->group(function () {
 // facultades
 Route::prefix('faculties')->group(function () {
     Route::get('/', [FacultyController::class, 'getAll']);
+    Route::get('/user/{id}', [FacultyController::class, 'getAllByUser']);
     Route::get('/{id}', [FacultyController::class, 'getOneById']);
     Route::post('/', [FacultyController::class, 'create']);
     Route::put('/{id}', [FacultyController::class, 'update']);
@@ -58,6 +59,7 @@ Route::prefix('faculties')->group(function () {
 Route::prefix('careers')->group(function () {
     Route::get('/', [CareerController::class, 'getAll']);
     Route::get('/{id}', [CareerController::class, 'getOneById']);
+    Route::get('/user/{id}', [CareerController::class, 'getAllByUser']);
     Route::post('/', [CareerController::class, 'create']);
     Route::put('/{id}', [CareerController::class, 'update']);
     Route::delete('/{id}', [CareerController::class, 'delete']);
