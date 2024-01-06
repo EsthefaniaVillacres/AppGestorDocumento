@@ -32,7 +32,7 @@ class ManageCareerController extends Controller
                 ->where('IdUser', $idAdmin);
         })->get();
 
-        return response()->json(['filteredCareers' => $filteredCareers]);
+        return response()->json($filteredCareers);
     }
     public function getUserAsignedByCareer($idCareer)
     {

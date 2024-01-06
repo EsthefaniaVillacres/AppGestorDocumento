@@ -26,12 +26,15 @@ import { SharedModule } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ManageSecretaryAdminComponent } from './componentes/manage-secretary-admin/manage-secretary-admin.component';
+import { SplitterModule } from 'primeng/splitter';
 
 @NgModule({
   declarations: [
     PagSecretaryAdminComponent,
     TabSecretaryAdminComponent,
-    FormSecretaryAdminComponent
+    FormSecretaryAdminComponent,
+    ManageSecretaryAdminComponent
   ],
   imports: [
     CommonModule,
@@ -56,12 +59,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListboxModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SplitterModule
   ],
   exports: [
     PagSecretaryAdminComponent,
     TabSecretaryAdminComponent,
-    FormSecretaryAdminComponent
+    FormSecretaryAdminComponent,
+    ManageSecretaryAdminComponent
   ]
 })
 export class SecretaryAdminModule { }

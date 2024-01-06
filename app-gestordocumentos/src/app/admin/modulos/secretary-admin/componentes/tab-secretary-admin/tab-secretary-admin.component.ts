@@ -15,6 +15,8 @@ export class TabSecretaryAdminComponent {
   mostrar: boolean = false
   listData: any
   IdPerfil:any=localStorage.getItem('IdPerfil')
+  visible:boolean=false
+  mostrarCarreras: boolean = false
   constructor(private userService: UserService, private confirmationService: ConfirmationService, private messageService: MessageService) {
 
   }
@@ -59,5 +61,14 @@ export class TabSecretaryAdminComponent {
       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Registro eliminado', life: 3000 });
       this.getListData()
     })
+  }
+  asignedManager(row:any){
+    this.data={...row}
+    this.visible=true
+    this.mostrarCarreras=true
+  }
+  hideDialogManage(){
+    this.visible=false
+    this.mostrarCarreras=false
   }
 }

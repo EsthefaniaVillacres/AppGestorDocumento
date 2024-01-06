@@ -66,4 +66,6 @@ ng g c admin/modulos/manage-admin/componentes/manage-user-admin --export
 Manage carreras
 ng g s servicios/api/managecareer
 ng g c admin/modulos/career-admin/componentes/manage-career-admin --export
+manage secretary
+ng g c admin/modulos/secretary-admin/componentes/manage-secretary-admin --export
 
