@@ -26,12 +26,15 @@ import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { PagStudentAdminComponent } from './pag-student-admin/pag-student-admin.component';
 import { TabStudentAdminComponent } from './componentes/tab-student-admin/tab-student-admin.component';
 import { FormStudentAdminComponent } from './componentes/form-student-admin/form-student-admin.component';
+import { StudentCareerAdminComponent } from './componentes/student-career-admin/student-career-admin.component';
+import { SplitterModule } from 'primeng/splitter';
 
 @NgModule({
   declarations: [
     PagStudentAdminComponent,
     TabStudentAdminComponent,
-    FormStudentAdminComponent
+    FormStudentAdminComponent,
+    StudentCareerAdminComponent
   ],
   imports: [
     CommonModule,
@@ -56,12 +59,14 @@ import { FormStudentAdminComponent } from './componentes/form-student-admin/form
     ListboxModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SplitterModule
   ],
   exports: [
     PagStudentAdminComponent,
     TabStudentAdminComponent,
-    FormStudentAdminComponent
+    FormStudentAdminComponent,
+    StudentCareerAdminComponent
   ]
 })
 export class StudentAdminModule { }

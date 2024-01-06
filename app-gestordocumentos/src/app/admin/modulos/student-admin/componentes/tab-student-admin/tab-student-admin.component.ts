@@ -14,6 +14,8 @@ export class TabStudentAdminComponent {
   data: any
   mostrar: boolean = false
   listData: any
+  visible:boolean=false
+  mostrarCarreras: boolean = false
   constructor(private studentService: StudentService, private confirmationService: ConfirmationService, private messageService: MessageService) {
 
   }
@@ -58,5 +60,14 @@ export class TabStudentAdminComponent {
       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Registro eliminado', life: 3000 });
       this.getListData()
     })
+  }
+  asignedManager(row:any){
+    this.data={...row}
+    this.visible=true
+    this.mostrarCarreras=true
+  }
+  hideDialogCarreras(){
+    this.visible=false
+    this.mostrarCarreras=false
   }
 }

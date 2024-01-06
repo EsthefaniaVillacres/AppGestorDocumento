@@ -54,4 +54,8 @@ php artisan migrate
 php artisan make:model TemplateCareer
 php artisan make:controller TemplateCareerController
 
-
+student career
+php artisan make:migration create_student_career_table
+php artisan migrate
+php artisan make:model StudentCareer
+php artisan make:controller StudentCareerController

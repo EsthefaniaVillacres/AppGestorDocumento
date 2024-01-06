@@ -2,7 +2,8 @@
     <p-toast></p-toast>
     <p-toolbar styleClass="mb-4 gap-2">
         <ng-template pTemplate="left">
-            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"
+                (click)="openNew()"></button>
         </ng-template>
 
         <ng-template pTemplate="right">
@@ -12,7 +13,8 @@
         </ng-template>
     </p-toolbar>
 
-    <p-table #dt [value]="listData" [rows]="10" [paginator]="true" [globalFilterFields]="['Cedula', 'Nombre','Apellido','Telefono','Direccion','Correo']"
+    <p-table #dt [value]="listData" [rows]="10" [paginator]="true"
+        [globalFilterFields]="['Cedula', 'Nombre','Apellido','Telefono','Direccion','Correo']"
         [tableStyle]="{ 'min-width': '75rem' }" [(selection)]="selectedListData" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} registros"
         [showCurrentPageReport]="true">
@@ -21,7 +23,8 @@
                 <h5 class="m-0">Gestión de Registros</h5>
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
-                    <input #buscar pInputText type="text" (input)="dt.filterGlobal(buscar.value, 'contains')" placeholder="Buscar..." />
+                    <input #buscar pInputText type="text" (input)="dt.filterGlobal(buscar.value, 'contains')"
+                        placeholder="Buscar..." />
                 </span>
             </div>
         </ng-template>
@@ -29,10 +32,15 @@
             <tr>
                 <th pSortableColumn="code" style="min-width:15rem">Cedula <p-sortIcon field="code"></p-sortIcon></th>
                 <th pSortableColumn="name" style="min-width:15rem">Nombre <p-sortIcon field="name"></p-sortIcon></th>
-                <th pSortableColumn="lastname" style="min-width:15rem">Apellido <p-sortIcon field="lastname"></p-sortIcon></th>
-                <th pSortableColumn="phone" style="min-width:15rem">Telefono <p-sortIcon field="phone"></p-sortIcon></th>
-                <th pSortableColumn="address" style="min-width:15rem">Dirección <p-sortIcon field="address"></p-sortIcon></th>
-                <th pSortableColumn="email" style="min-width:15rem">Correo Electrónico <p-sortIcon field="email"></p-sortIcon></th> <th></th>
+                <th pSortableColumn="lastname" style="min-width:15rem">Apellido <p-sortIcon
+                        field="lastname"></p-sortIcon></th>
+                <th pSortableColumn="phone" style="min-width:15rem">Telefono <p-sortIcon field="phone"></p-sortIcon>
+                </th>
+                <th pSortableColumn="address" style="min-width:15rem">Dirección <p-sortIcon
+                        field="address"></p-sortIcon></th>
+                <th pSortableColumn="email" style="min-width:15rem">Correo Electrónico <p-sortIcon
+                        field="email"></p-sortIcon></th>
+                <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-row>
@@ -43,9 +51,13 @@
                 <td>{{ row.Telefono }}</td>
                 <td>{{ row.Direccion }}</td>
                 <td>{{ row.Correo }}</td>
-                <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(row)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteRow(row)"></button>
+                <td class="iconos">
+                    <div class="buttonRounded" (click)="asignedManager(row)"><i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                        (click)="edit(row)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                        (click)="deleteRow(row)"></button>
                 </td>
             </tr>
         </ng-template>
@@ -55,12 +67,13 @@
     </p-table>
 </div>
 <ng-container *ngIf="mostrar">
-    <app-form-student-admin
-    [data]="data"
-    [dataDialog]="dataDialog"
-    (onClick)="hideDialog()"
-    ></app-form-student-admin>
+    <app-form-student-admin [data]="data" [dataDialog]="dataDialog" (onClick)="hideDialog()"></app-form-student-admin>
+</ng-container>
+<ng-container *ngIf="mostrarCarreras">
+    <app-student-career-admin 
+    [data]="data" 
+    [visible]="visible"
+     (onClick)="hideDialogCarreras()"></app-student-career-admin>
 </ng-container>
 
 <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
-
