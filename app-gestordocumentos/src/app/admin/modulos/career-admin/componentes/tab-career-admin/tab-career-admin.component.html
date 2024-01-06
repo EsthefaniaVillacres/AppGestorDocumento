@@ -41,6 +41,7 @@
                 <td>
                     <button pButton pRipple icon="pi pi-users" class="p-button-rounded p-button-info"
                     (click)="asignedManager(row)"></button>
+                    <button pButton pRipple icon="pi pi-folder-open" class="p-button-rounded p-button-help mr-2" (click)="asignedTemplate(row)"></button>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(row)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteRow(row)"></button>
                 </td>
@@ -65,6 +66,12 @@
     (onClick)="hideDialogManage()"
     ></app-manage-career-admin>
 </ng-container>
-
+<ng-container *ngIf="mostrarPlantillas">
+    <app-template-career-admin
+    [visible]="visible"
+    [data]="data"
+    (onClick)="hideDialogTemplate()"
+    ></app-template-career-admin>
+</ng-container>
 <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
 

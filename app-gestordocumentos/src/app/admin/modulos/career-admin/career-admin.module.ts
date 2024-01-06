@@ -28,13 +28,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { ManageCareerAdminComponent } from './componentes/manage-career-admin/manage-career-admin.component';
 import { SplitterModule } from 'primeng/splitter';
+import { TemplateCareerAdminComponent } from './componentes/template-career-admin/template-career-admin.component';
 
 @NgModule({
   declarations: [
     PagCareerAdminComponent,
     TabCareerAdminComponent,
     FormCareerAdminComponent,
-    ManageCareerAdminComponent
+    ManageCareerAdminComponent,
+    TemplateCareerAdminComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +68,8 @@ import { SplitterModule } from 'primeng/splitter';
     PagCareerAdminComponent,
     TabCareerAdminComponent,
     FormCareerAdminComponent,
-    ManageCareerAdminComponent
+    ManageCareerAdminComponent,
+    TemplateCareerAdminComponent
   ]
 })
 export class CareerAdminModule { }

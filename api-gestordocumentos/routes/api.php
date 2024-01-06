@@ -9,6 +9,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ManageFacultyController;
 use App\Http\Controllers\ManageCareerController;
+use App\Http\Controllers\TemplateCareerController;
 use App\Models\Career;
 use App\Models\TemplateCab;
 use Illuminate\Http\Request;
@@ -103,4 +104,11 @@ Route::prefix('managecareer')->group(function () {
     Route::get('/userunasigned/{idCareer}', [ManageCareerController::class, 'getUserUnasignedByCareer']);
     Route::post('/', [ManageCareerController::class, 'create']);
     Route::delete('/{idUser}/{idCareer}', [ManageCareerController::class, 'delete']);
+});
+//templates/ carreras asignados
+Route::prefix('templatecareer')->group(function () {
+    Route::get('/templateasigned/{id}', [TemplateCareerController::class, 'getTemplateAsignedByCareer']);
+    Route::get('/templateunasigned/{id}', [TemplateCareerController::class, 'getTemplateUnasignedByCareer']);
+    Route::post('/', [TemplateCareerController::class, 'create']);
+    Route::delete('/{idUser}/{idCareer}', [TemplateCareerController::class, 'delete']);
 });

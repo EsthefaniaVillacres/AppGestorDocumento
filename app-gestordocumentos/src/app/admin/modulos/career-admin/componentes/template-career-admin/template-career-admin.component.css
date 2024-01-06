@@ -1,0 +1,27 @@
+
+.panel-left {
+   
+    color: black;
+    width: 100%;
+}
+.panel-right {
+    
+    color: black;
+    width: 100%;
+}
+.head{
+    margin: 0 15px;
+}
+.card {
+    background: #ffffff;
+    color: #4b5563;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    padding: 10px;
+    margin: 5px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+

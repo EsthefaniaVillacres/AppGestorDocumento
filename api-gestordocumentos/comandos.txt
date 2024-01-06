@@ -48,4 +48,10 @@ php artisan migrate
 php artisan make:model ManageCareer
 php artisan make:controller ManageCareerController
 
+template  career 
+php artisan make:migration create_template_career_table
+php artisan migrate
+php artisan make:model TemplateCareer
+php artisan make:controller TemplateCareerController
+
 

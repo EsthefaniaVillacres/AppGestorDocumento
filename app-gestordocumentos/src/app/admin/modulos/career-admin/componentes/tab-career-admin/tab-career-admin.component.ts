@@ -15,7 +15,8 @@ export class TabCareerAdminComponent {
   mostrar: boolean = false
   listData: any
   visible:boolean=false
-  mostrarUsuarios: boolean = false
+  mostrarUsuarios: boolean = false 
+  mostrarPlantillas: boolean = false
   idUser:any=localStorage.getItem('dato')
   constructor(private careerService: CareerService, private confirmationService: ConfirmationService, private messageService: MessageService) {
 
@@ -72,6 +73,17 @@ export class TabCareerAdminComponent {
   hideDialogManage(){
     this.visible=false
     this.mostrarUsuarios=false
+
+  }
+  asignedTemplate(row:any){
+    this.data={...row}
+    this.visible=true
+    this.mostrarPlantillas=true
+
+  }
+  hideDialogTemplate(){
+    this.visible=false
+    this.mostrarPlantillas=false
 
   }
 }
