@@ -26,12 +26,15 @@ import { SharedModule } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import { ManageCareerAdminComponent } from './componentes/manage-career-admin/manage-career-admin.component';
+import { SplitterModule } from 'primeng/splitter';
 
 @NgModule({
   declarations: [
     PagCareerAdminComponent,
     TabCareerAdminComponent,
-    FormCareerAdminComponent
+    FormCareerAdminComponent,
+    ManageCareerAdminComponent
   ],
   imports: [
     CommonModule,
@@ -56,12 +59,14 @@ import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
     ListboxModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SplitterModule
   ],
   exports: [
     PagCareerAdminComponent,
     TabCareerAdminComponent,
-    FormCareerAdminComponent
+    FormCareerAdminComponent,
+    ManageCareerAdminComponent
   ]
 })
 export class CareerAdminModule { }

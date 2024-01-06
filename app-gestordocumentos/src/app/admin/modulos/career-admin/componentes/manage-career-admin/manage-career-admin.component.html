@@ -1,0 +1,41 @@
+<p-dialog (onHide)="hideDialog()" header="Usuarios" [(visible)]="visible" [style]="{ width: '50vw' }"  [modal]="true">
+    <p-splitter [style]="{ height: '300px' }" styleClass="mb-5">
+      <ng-template pTemplate="left">
+        <div class="panel-left">
+          <div class="head">
+            <h3>Usuarios no asignados</h3>
+          </div>
+          <div class="content">
+            <p-card>
+              <div class="card" *ngFor="let user of unusers">
+                <div class="row">
+                  <p>{{ user.name }}</p>
+                  <button pButton pRipple icon="pi pi-user-plus" class="p-button-rounded p-button-info"
+                    (click)="addUserManage(user)"></button>
+                </div>
+              </div>
+            </p-card>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="right">
+        <div class="panel-right">
+          <div class="head">
+            <h3>Usuarios asignados</h3>
+          </div>
+          <div class="content">
+            <p-card>
+              <div class="card" *ngFor="let user of users">
+                <div class="row">
+                  <p>{{ user.name }}</p>
+                  <button pButton pRipple icon="pi pi-user-minus" class="p-button-rounded p-button-warning"
+                    (click)="minusUserManage(user)"></button>
+                </div>
+              </div>
+            </p-card>
+          </div>
+        </div>
+      </ng-template>
+    </p-splitter>
+  </p-dialog>
+  

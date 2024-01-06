@@ -14,6 +14,8 @@ export class TabCareerAdminComponent {
   data: any
   mostrar: boolean = false
   listData: any
+  visible:boolean=false
+  mostrarUsuarios: boolean = false
   idUser:any=localStorage.getItem('dato')
   constructor(private careerService: CareerService, private confirmationService: ConfirmationService, private messageService: MessageService) {
 
@@ -60,5 +62,16 @@ export class TabCareerAdminComponent {
       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Registro eliminado', life: 3000 });
       this.getListData()
     })
+  }
+  asignedManager(row:any){
+    this.data={...row}
+    this.visible=true
+    this.mostrarUsuarios=true
+
+  }
+  hideDialogManage(){
+    this.visible=false
+    this.mostrarUsuarios=false
+
   }
 }

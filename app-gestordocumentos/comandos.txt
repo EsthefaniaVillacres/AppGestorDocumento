@@ -61,3 +61,9 @@ ng g s servicios/api/managefaculty
 ng g c admin/modulos/faculty-admin/componentes/manage-faculty-admin --export
 manage usuarios
 ng g c admin/modulos/manage-admin/componentes/manage-user-admin --export
+
+
+Manage carreras
+ng g s servicios/api/managecareer
+ng g c admin/modulos/career-admin/componentes/manage-career-admin --export
+

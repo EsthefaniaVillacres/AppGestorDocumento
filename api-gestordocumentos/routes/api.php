@@ -8,6 +8,7 @@ use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ManageFacultyController;
+use App\Http\Controllers\ManageCareerController;
 use App\Models\Career;
 use App\Models\TemplateCab;
 use Illuminate\Http\Request;
@@ -93,4 +94,13 @@ Route::prefix('managefaculty')->group(function () {
     Route::get('/userunasigned/{id}', [ManageFacultyController::class, 'getUserUnasignedByFaculty']);
     Route::post('/', [ManageFacultyController::class, 'create']);
     Route::delete('/{idUser}/{idFaculty}', [ManageFacultyController::class, 'delete']);
+});
+//carreras/ usuarios asignados
+Route::prefix('managecareer')->group(function () {
+    Route::get('/careerasigned/{id}', [ManageCareerController::class, 'getCareerAsignedByUser']);
+    Route::get('/careerunasigned/{idSecretary}/{idAdmin}', [ManageCareerController::class, 'getCareerUnasignedByUser']);
+    Route::get('/userasigned/{id}', [ManageCareerController::class, 'getUserAsignedByCareer']);
+    Route::get('/userunasigned/{idCareer}', [ManageCareerController::class, 'getUserUnasignedByCareer']);
+    Route::post('/', [ManageCareerController::class, 'create']);
+    Route::delete('/{idUser}/{idCareer}', [ManageCareerController::class, 'delete']);
 });

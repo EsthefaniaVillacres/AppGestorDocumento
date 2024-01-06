@@ -41,5 +41,11 @@ php artisan make:model TemplateCab
 php artisan make:model TemplateDet
 Controlador
 php artisan make:controller TemplateController
+manage career
+
+php artisan make:migration create_manage_career_table
+php artisan migrate
+php artisan make:model ManageCareer
+php artisan make:controller ManageCareerController
 
 
