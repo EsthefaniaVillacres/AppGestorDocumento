@@ -117,21 +117,22 @@ ng serve
 ## 8. Verificar el Funcionamiento:
 Accede a la aplicación a través de localhost en tu navegador web.
 ## 💻 Uso
-
+El sistema tiene tres roles de usuario los cuales tienen funciones específicas como se detalla a continuación.
 #### Login
-Te permitirá ingresar como administrador y como cliente de acuerdo a las credenciales que te proporcione el administrador ya que es el uniuco que podra crear nuevos usuarios como vendedore.
+Te permitirá ingresar como super administrador, administrador y  secretaria de acuerdo a los permisos que te proporcione el super administrador.
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/login.png)
 ## Rol Super Administrador
 #### Gestión de Facultades
+Las facultades serán gestionadas únicamente por el superadministrador, es decir podrá crear, modificar, eliminar facultades.
 
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/sFacultades.png)
 
 #### Asignación de administradores a facultades
-La firma electronica será ingresada al sistema en la siguiente ventana siempre y cuando tenga todas las validaciones legales.
+Además podra asignar administradores a facultades para su respectiva gestión.
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/sAsignacionAdminFacu.png)
 
 #### Gestión Administradores
-
+Tambien podrá crear administradores para cada facultad y asignarlos
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/sadministradores.png)
 
 #### Asignacion de facultades a administradores
@@ -139,7 +140,7 @@ La firma electronica será ingresada al sistema en la siguiente ventana siempre 
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/sAsignacionFacuAdmin.png)
 ## Rol Administrador
 #### Gestión de secretarias
-
+Por otro lado, el administrador podrá gestionar secretarias y carreras y posteriormente asignarlas
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/asecretarias.png)
 #### Asignación de carreras a secretarias
 
@@ -151,11 +152,18 @@ La firma electronica será ingresada al sistema en la siguiente ventana siempre 
 
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/asecretarias-carreras.png)
 #### Asignación de plantillas a carreras
-
+Con las plantillas el admistrador podra crear una base de carpetas según sea necesario para cada carrera.
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/aplantillas-carreras.png)
 #### Gestión de plantillas
 
 ![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/aplantillas.png)
+##  Rol Secretaria
+#### Gestión de estudiantes
+Permitirá gestionar a los estudiantes asi como asignar a cada uno de ellos carreras siempre y cuando tengan asignadas las facultades a las que pertenecene sas carreras.
+![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/sestudiantes.png)
+#### Asignación de carreras a estudiantes
+
+![Localhost](https://github.com/EsthefaniaVillacres/AppGestorDocumento/blob/Documentacion/scarreras-estudiantes.png)
 
 ## 🤝 Contribución
 Si deseas contribuir a este proyecto, sigue los siguientes pasos:
