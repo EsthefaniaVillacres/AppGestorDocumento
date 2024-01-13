@@ -76,3 +76,9 @@ ng g c admin/modulos/career-admin/componentes/template-career-admin --export
 student career
 ng g s servicios/api/studentcareer
 ng g c admin/modulos/student-admin/componentes/student-career-admin --export
+
+permission
+ng g m admin/modulos/permission-admin --routing
+ng g c admin/modulos/permission-admin/pag-permission-admin --export
+ng g s servicios/api/permissiontemplate
+ng g s servicios/api/permissionfolder

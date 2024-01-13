@@ -1,0 +1,149 @@
+<div class="content">
+    <div class="lista">
+        <p-table #dt [value]="listSecretaries" [rows]="10" [paginator]="true" [globalFilterFields]="['name', 'email']"
+            [tableStyle]="{ 'width': '25rem' }" [(selection)]="selectedListSecretaries" [rowHover]="true" dataKey="id"
+            currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} registros"
+            [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    <h5 class="m-0">Lista de secretarias</h5>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input #buscar pInputText type="text" (input)="dt.filterGlobal(buscar.value, 'contains')"
+                            placeholder="Buscar..." />
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="name" style="width:1rem">Nombre <p-sortIcon field="name"></p-sortIcon>
+                    </th>
+                    <th style="width:1rem"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-row>
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td class="iconos">
+                        <div class="buttonRounded" (click)="showCareerAsigned(row)"><i
+                                class="fa-solid fa-graduation-cap"></i></div>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between"></div>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="asignaciones">
+        <div class="carreras">
+            <h4 *ngIf="selectSecretary">Carreras asignadas a: {{selectSecretary.name}} </h4>
+            <div class="listaCarreras">
+                <div class="carrera" *ngFor="let carrera of carreras">
+                    <div class="nombre">
+                        {{carrera.Carrera}}
+                    </div>
+                    <div class="buttonRounded" (click)="showTemplate(carrera)"><i class="fa-solid fa-folder-tree"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="permisos">
+            <div class="plantillas">
+                <div class="titulo" *ngIf="selectManageCareer">
+                    Plantillas asignadas a: {{selectManageCareer.Carrera}}
+                </div>
+                <div class="listaPlantillas">
+                    <div class="plantilla" *ngFor="let plantilla of plantillas">
+                        <div class="nombre">
+                            {{plantilla.Nombre}}
+                        </div>
+                        <div class="estado">
+                            <div *ngIf="plantilla.numReg === 0; else asignadoBlock">
+                                <p>No asignado</p>
+                            </div>
+                            <ng-template #asignadoBlock>
+                                <p>Asignado</p>
+                            </ng-template>
+                        </div>
+                        <div class="opciones">
+                            <div *ngIf="plantilla.numReg === 0; else asignadoBlock1">
+                                <div class="buttonRounded" (click)="permitirAcceso(plantilla)"><i
+                                        class="fa-regular fa-square"></i>
+                                </div>
+                            </div>
+                            <ng-template #asignadoBlock1>
+                                <div class="buttonRounded" (click)="denegarAcceso(plantilla)"><i
+                                        class="fa-regular fa-square-check"></i>
+                                </div>
+                            </ng-template>
+
+                            <div class="buttonRounded" (click)="editarAcceso(plantilla)"><i
+                                    class="fa-solid fa-gear"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carpetas">
+                <div class="titulo" *ngIf="selectPermisoTemplate">
+                    Carpetas asignadas a: {{selectPermisoTemplate.Nombre}}
+                </div>
+                <div class="carpeta" *ngFor="let carpeta of carpetas">
+                    <div class="nombre">
+                        {{carpeta.NombreCarpeta}}
+                    </div>
+                    <div class="estado">
+                        <div *ngIf="carpeta.numReg === 0; else asignadoBlock">
+                            <p>No asignado</p>
+                        </div>
+                        <ng-template #asignadoBlock>
+                            <p>Asignado</p>
+                        </ng-template>
+                    </div>
+                    <div class="opciones">
+
+                        <div class="buttonRounded" (click)="showDialog(carpeta)"><i class="fa-solid fa-gear"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <p-dialog [(visible)]="dataDialog" [style]="{ width: '250px' }" header="Detalles de registro" [modal]="true"
+        (onHide)="hideDialog()" styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div class="field">
+                <label class="etiqueta" >Cargar</label>
+                <div class="card flex justify-content-center">
+                    <p-inputSwitch [(ngModel)]="checkedCarga"></p-inputSwitch>
+                </div>
+            </div>
+            <div class="field">
+                <label class="etiqueta" >Descargar</label>
+                <div class="card flex justify-content-center">
+                    <p-inputSwitch [(ngModel)]="checkedDescarga"></p-inputSwitch>
+                </div>
+            </div>
+            <div class="field">
+                <label class="etiqueta" >Ver</label>
+                <div class="card flex justify-content-center">
+                    <p-inputSwitch [(ngModel)]="checkedVista"></p-inputSwitch>
+                </div>
+            </div>
+            <div class="field">
+                <label class="etiqueta" >Eliminar</label>
+                <div class="card flex justify-content-center">
+                    <p-inputSwitch [(ngModel)]="checkedEliminado"></p-inputSwitch>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+                (click)="hideDialog()"></button>
+                <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="guardarPermisosFolder()"></button>
+
+        </ng-template>
+    </p-dialog>

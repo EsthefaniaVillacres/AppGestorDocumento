@@ -38,7 +38,6 @@ export class ManageUserAdminComponent {
     let register: any = {}
     register.IdFaculty = row.Id
     register.IdUser = this.data.id
-    console.log(register);
     
     this.managefaculty.create(register).subscribe(result => {
       this.getFacultyAsigned()

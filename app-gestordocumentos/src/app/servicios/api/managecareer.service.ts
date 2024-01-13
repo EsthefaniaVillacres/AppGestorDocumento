@@ -39,7 +39,13 @@ export class ManagecareerService {
     })
     return this.http.get<any>(this.urlApi+'/userunasigned/'+idCareer, { headers });
   }
-  
+  public getManageCareerBySecretary(idSecretary:any): Observable<any>{
+    const token = this.authServices.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    })
+    return this.http.get<any>(this.urlApi+'/careers/'+idSecretary, { headers });
+  }
 
   public create(data: any): Observable<any> {
     const token = this.authServices.getToken();

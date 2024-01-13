@@ -33,6 +33,7 @@ import { StudentAdminModule } from './modulos/student-admin/student-admin.module
 import { TemplateAdminModule } from './modulos/template-admin/template-admin.module';
 import { ManageAdminModule } from './modulos/manage-admin/manage-admin.module';
 import { SecretaryAdminModule } from './modulos/secretary-admin/secretary-admin.module';
+import { PermissionAdminModule } from './modulos/permission-admin/permission-admin.module';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { SecretaryAdminModule } from './modulos/secretary-admin/secretary-admin.
     StudentAdminModule,
     TemplateAdminModule,
     ManageAdminModule,
-    SecretaryAdminModule
+    SecretaryAdminModule,
+    PermissionAdminModule
   ],
   exports: [
     PagPrincipalAdminComponent,

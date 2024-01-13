@@ -9,6 +9,8 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ManageFacultyController;
 use App\Http\Controllers\ManageCareerController;
+use App\Http\Controllers\PermissionFolderController;
+use App\Http\Controllers\PermissionTemplateController;
 use App\Http\Controllers\StudentCareerController;
 use App\Http\Controllers\TemplateCareerController;
 use App\Models\Career;
@@ -103,6 +105,7 @@ Route::prefix('managecareer')->group(function () {
     Route::get('/careerunasigned/{idSecretary}/{idAdmin}', [ManageCareerController::class, 'getCareerUnasignedByUser']);
     Route::get('/userasigned/{id}', [ManageCareerController::class, 'getUserAsignedByCareer']);
     Route::get('/userunasigned/{idCareer}', [ManageCareerController::class, 'getUserUnasignedByCareer']);
+    Route::get('/careers/{idSecretary}', [ManageCareerController::class, 'getManageCareerBySecretary']);
     Route::post('/', [ManageCareerController::class, 'create']);
     Route::delete('/{idUser}/{idCareer}', [ManageCareerController::class, 'delete']);
 });
@@ -119,4 +122,20 @@ Route::prefix('studentcareer')->group(function () {
     Route::get('/careerunasigned/{idStudent}/{idSecretary}', [StudentCareerController::class, 'getCareerUnasignedByStudent']);
     Route::post('/', [StudentCareerController::class, 'create']);
     Route::delete('/{idCareer}/{idStudent}', [StudentCareerController::class, 'delete']);
+});
+// 
+Route::prefix('permissiontemplate')->group(function () {
+    Route::get('/template/{idManageCareer}/{idCareer}', [PermissionTemplateController::class, 'getTemplatesByManageCareer']);
+    Route::get('/parameters/{idManageCareer}/{idTemplateCab}', [PermissionTemplateController::class, 'getPermissionTemplateByParameters']);
+    Route::get('/{id}', [PermissionTemplateController::class, 'getPermissionTemplateById']);
+    Route::post('/', [PermissionTemplateController::class, 'create']);
+
+});
+//
+Route::prefix('permissionfolder')->group(function () {
+    Route::get('/folder/{idPermissionTemplate}/{idTemplate}', [PermissionFolderController::class, 'getFoldersByTemplate']);
+    Route::get('/parameters/{idPermissionTemplate}/{idTemplateDet}', [PermissionFolderController::class, 'getPermissionFolderByParameters']);
+    Route::get('/{id}', [PermissionFolderController::class, 'getPermissionFolderById']);
+    Route::post('/', [PermissionFolderController::class, 'create']);
+
 });

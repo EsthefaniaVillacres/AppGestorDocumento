@@ -55,6 +55,15 @@ class ManageCareerController extends Controller
 
         return response()->json($userNotAssigned);
     }
+    public function getManageCareerBySecretary($idUser)
+    {
+        $careers = ManageCareer::select('manage_career.*','career.Nombre as Carrera')
+        ->join('career','manage_career.IdCareer','career.Id') 
+        ->where('IdUser','=',$idUser)        
+        ->get();
+
+        return response()->json($careers);
+    }
     public function create(Request $request)
     {
         try {

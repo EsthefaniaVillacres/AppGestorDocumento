@@ -53,10 +53,12 @@ export class MenuComponent {
       { 'Id': 1, 'Nombre': 'Secretarias', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'secretaries' },
       { 'Id': 2, 'Nombre': 'Carreras', 'Logo': 'fa-solid fa-users', 'Seleccionado': false, 'route': 'careers' },
       { 'Id': 3, 'Nombre': 'Plantillas', 'Logo': 'fa-solid fa-percent', 'Seleccionado': false, 'route': 'templates' },
+      { 'Id': 2, 'Nombre': 'Permisos', 'Logo': 'fa-solid fa-shield-halved', 'Seleccionado': false, 'route': 'permissions' },
       { 'Id': 4, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
     this.listMenuSecretary = [
       { 'Id': 1, 'Nombre': 'Estudiantes', 'Logo': 'fa-solid fa-business-time', 'Seleccionado': false, 'route': 'students' },
-      { 'Id': 2, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
+      { 'Id': 3, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
+
     this.listaMenu = [
       { 'Id': 1, 'Nombre': 'Usuarios', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'users' },
       { 'Id': 2, 'Nombre': 'Facultades', 'Logo': 'fa-solid fa-building-columns', 'Seleccionado': false, 'route': 'faculties' },

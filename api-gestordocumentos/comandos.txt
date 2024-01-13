@@ -59,3 +59,18 @@ php artisan make:migration create_student_career_table
 php artisan migrate
 php artisan make:model StudentCareer
 php artisan make:controller StudentCareerController
+
+permission template
+php artisan make:migration  create_permission_template_table
+php artisan migrate
+php artisan make:model PermissionTemplate
+php artisan make:controller PermissionTemplateController
+
+permission folder
+php artisan make:migration  create_permission_folder_table
+php artisan migrate
+php artisan make:model PermissionFolder
+php artisan make:controller PermissionFolderController
+
+rollback
+php artisan migrate:rollback
