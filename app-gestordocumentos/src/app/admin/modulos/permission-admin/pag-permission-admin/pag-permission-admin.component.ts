@@ -116,25 +116,26 @@ export class PagPermissionAdminComponent {
     })
   }
   guardarPermisosFolder() {
+    let register: any = {}
+    register.IdPermissionTemplate = this.selectPermisoTemplate.Id
+    register.IdTemplateDet = this.selectPermisosFolderTemp.Id
+    register.Carga = this.checkedCarga
+    register.Descarga = this.checkedDescarga
+    register.Vista = this.checkedVista
+    register.Eliminado = this.checkedEliminado
     if (this.selectPermisosFolder && this.selectPermisosFolder.Id) {
-
-
+      register.Id = this.selectPermisosFolder.Id
+      this.updatePermissionFolder(register)
     } else {
-      let register: any = {}
-      register.IdPermissionTemplate = this.selectPermisoTemplate.Id
-      register.IdTemplateDet = this.selectPermisosFolderTemp.Id
-      register.Carga = this.checkedCarga
-      register.Descarga = this.checkedDescarga
-      register.Vista = this.checkedVista
-      register.Eliminado = this.checkedEliminado
       this.createPermissionFolder(register)
     }
-
-
+    this.hideDialog()
+    
   }
   createPermissionFolder(row: any) {
     this.permissionfolder.create(row).subscribe(result => {
       alert('registro creado satisfactoreamente')
+      this.getCarpetas(this.selectPermisoTemplate)
     })
   }
   iniciarCheckBox() {
@@ -145,11 +146,18 @@ export class PagPermissionAdminComponent {
   }
   asignarCheckBox(row: any) {
     this.checkedCarga = !!row.Carga
-    console.log(this.checkedCarga );
+    console.log(this.checkedCarga);
     console.log(row.Carga);
-    
+
     this.checkedDescarga = !!row.Descarga
     this.checkedVista = !!row.Vista
     this.checkedEliminado = !!row.Eliminado
+  }
+  updatePermissionFolder(row: any) {
+    this.permissionfolder.update(row, row.Id).subscribe(result => {
+      alert('Registro actualizado con éxito')
+      this.getCarpetas(this.selectPermisoTemplate)
+    })
+
   }
 }

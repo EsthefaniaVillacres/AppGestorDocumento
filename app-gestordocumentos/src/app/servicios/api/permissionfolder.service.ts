@@ -39,4 +39,11 @@ export class PermissionfolderService {
     })
     return this.http.post<any>(this.urlApi, data, { headers });
   }
+  public update(data:any,id:string):Observable<any>{
+    const token = this.authServices.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    })
+    return this.http.put<any>(this.urlApi+'/'+id,data,{ headers });
+  }
 }

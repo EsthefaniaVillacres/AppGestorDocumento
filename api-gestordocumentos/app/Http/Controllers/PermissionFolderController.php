@@ -11,7 +11,7 @@ class PermissionFolderController extends Controller
 {
     public function getFoldersByTemplate($idPermissionTemplate, $idTemplate)
     {
-        return TemplateDet::select('template_det.*', DB::raw('(select count(*) from permission_folder where permission_folder.IdPermissionTemplate = ' . $idPermissionTemplate . ') as numReg'))
+        return TemplateDet::select('template_det.*', DB::raw('(select count(*) from permission_folder where permission_folder.IdPermissionTemplate = ' . $idPermissionTemplate . ' and permission_folder.IdTemplateDet= template_det.Id) as numReg'))
             ->where('template_det.IdTemplateCab', '=', $idTemplate)
             ->get();
     }
@@ -45,5 +45,18 @@ class PermissionFolderController extends Controller
     public function getPermissionFolderById($id){
         return PermissionFolder::find($id);
     }
+    public function update(Request $request, $id)
+    {
+        try {
+            PermissionFolder::find($id)->update($request->input());
+            return response()->json([
+                'estado' => true,
+                'mensaje' => 'Registro actualizado satisfactoriamente'
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['estado' => false, 'mensajeErrores' => $th->getMessage()], 500);
+        }
+    }
+
 
 }

@@ -137,5 +137,6 @@ Route::prefix('permissionfolder')->group(function () {
     Route::get('/parameters/{idPermissionTemplate}/{idTemplateDet}', [PermissionFolderController::class, 'getPermissionFolderByParameters']);
     Route::get('/{id}', [PermissionFolderController::class, 'getPermissionFolderById']);
     Route::post('/', [PermissionFolderController::class, 'create']);
+    Route::put('/{id}', [PermissionFolderController::class, 'update']);
 
 });

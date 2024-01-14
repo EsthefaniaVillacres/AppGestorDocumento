@@ -12,7 +12,7 @@ class PermissionTemplateController extends Controller
 {
     public function getTemplatesByManageCareer($idManageCareer, $idCareer)
     {
-        return TemplateCareer::select('template_career.*', 'template_cab.Nombre', DB::raw('(select count(*) from permission_template where permission_template.IdManageCareer = ' . $idManageCareer . ') as numReg'))
+        return TemplateCareer::select('template_career.*', 'template_cab.Nombre', DB::raw('(select count(*) from permission_template where permission_template.IdManageCareer = ' . $idManageCareer . ' and permission_template.IdTemplateCab=template_career.IdTemplateCab) as numReg'))
             ->join('template_cab', 'template_career.IdTemplateCab', '=', 'template_cab.Id')
             ->where('template_career.IdCareer', '=', $idCareer)
             ->get();
