@@ -189,6 +189,6 @@ Este proyecto académico no tiene una licencia específica asignada. Todos los d
 Si tienes alguna pregunta o comentario, puedes contactarte con los miembros del equipo de desarrollo:
 
 * svillacres6104@uta.edu.ec
-* ingresar todos los miembros
+  
 
 
