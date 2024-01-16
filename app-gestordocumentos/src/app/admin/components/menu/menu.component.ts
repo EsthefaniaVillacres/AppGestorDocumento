@@ -57,7 +57,7 @@ export class MenuComponent {
       { 'Id': 4, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
     this.listMenuSecretary = [
       { 'Id': 1, 'Nombre': 'Estudiantes', 'Logo': 'fa-solid fa-business-time', 'Seleccionado': false, 'route': 'students' },
-      { 'Id': 3, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
+      { 'Id': 2, 'Nombre': 'Gestión de Archivos', 'Logo': 'fa-solid fa-file-shield', 'Seleccionado': false, 'route': 'files' }]
 
     this.listaMenu = [
       { 'Id': 1, 'Nombre': 'Usuarios', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'users' },

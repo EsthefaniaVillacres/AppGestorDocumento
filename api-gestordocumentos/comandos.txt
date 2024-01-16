@@ -74,3 +74,9 @@ php artisan make:controller PermissionFolderController
 
 rollback
 php artisan migrate:rollback
+
+manage file
+php artisan make:migration  create_manage_file_table
+php artisan migrate
+php artisan make:model ManageFile
+php artisan make:controller ManageFileController

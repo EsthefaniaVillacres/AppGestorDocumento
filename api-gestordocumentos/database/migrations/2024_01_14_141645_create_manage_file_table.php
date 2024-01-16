@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('career', function (Blueprint $table) {
+        Schema::create('manage_file', function (Blueprint $table) {
             $table->id('Id');
-            $table->unsignedBigInteger('IdFaculty');
-            $table->string('Codigo',15)->unique();
-            $table->string('Nombre',150);
+            $table->unsignedBigInteger('IdStudent');
+            $table->unsignedBigInteger('IdTemplateDet');
+            $table->unsignedBigInteger('IdUser');
+            $table->string('NombreArchivo',300); 
+            $table->binary('Archivo'); 
             $table->string('Estado',15)->default('Activo'); 
+            $table->timestamps();
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('career');
+        Schema::dropIfExists('manage_file');
     }
 };

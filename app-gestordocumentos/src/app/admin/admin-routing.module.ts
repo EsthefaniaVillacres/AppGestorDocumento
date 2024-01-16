@@ -11,7 +11,8 @@ const routes: Routes = [
     {path:'templates',loadChildren:()=>import('./modulos/template-admin/template-admin-routing.module').then((m)=>m.TemplateAdminRoutingModule)},
     {path:'managers',loadChildren:()=>import('./modulos/manage-admin/manage-admin-routing.module').then((m)=>m.ManageAdminRoutingModule)},
     {path:'secretaries',loadChildren:()=>import('./modulos/secretary-admin/secretary-admin-routing.module').then((m)=>m.SecretaryAdminRoutingModule)},
-    {path:'permissions',loadChildren:()=>import('./modulos/permission-admin/permission-admin-routing.module').then((m)=>m.PermissionAdminRoutingModule)}
+    {path:'permissions',loadChildren:()=>import('./modulos/permission-admin/permission-admin-routing.module').then((m)=>m.PermissionAdminRoutingModule)},
+    {path:'files',loadChildren:()=>import('./modulos/managefile-admin/managefile-admin-routing.module').then((m)=>m.ManagefileAdminRoutingModule)}
 
 
   ]}

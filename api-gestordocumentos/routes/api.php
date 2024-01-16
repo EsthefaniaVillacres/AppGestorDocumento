@@ -13,6 +13,7 @@ use App\Http\Controllers\PermissionFolderController;
 use App\Http\Controllers\PermissionTemplateController;
 use App\Http\Controllers\StudentCareerController;
 use App\Http\Controllers\TemplateCareerController;
+use App\Http\Controllers\ManageFileController;
 use App\Models\Career;
 use App\Models\TemplateCab;
 use Illuminate\Http\Request;
@@ -139,4 +140,19 @@ Route::prefix('permissionfolder')->group(function () {
     Route::post('/', [PermissionFolderController::class, 'create']);
     Route::put('/{id}', [PermissionFolderController::class, 'update']);
 
+});
+//
+Route::prefix('managefile')->group(function () {
+    Route::get('/', [ManageFileController::class, 'index']);
+    Route::get('/{id}', [ManageFileController::class, 'show']);
+    Route::post('/', [ManageFileController::class, 'store']);
+    Route::get('/{id}/download', [ManageFileController::class, 'download']);
+    Route::delete('/{id}', [ManageFileController::class, 'destroy']);
+    //
+    Route::get('/facultades/{idSecretary}', [ManageFileController::class, 'getFacultiesByIdSecretary']);
+    Route::get('/carreras/{idSecretary}/{idFaculty}', [ManageFileController::class, 'getCarrersBySecretaryFaculty']);
+    Route::get('/estudiantes/{idCareer}', [ManageFileController::class, 'getStudentByCarrers']);
+    Route::get('/templates/{idSecretary}/{idCareer}', [ManageFileController::class, 'getTemplatesBySecretaryCareer']);
+    Route::get('/folder/{idSecretary}/{idTemplateCab}', [ManageFileController::class, 'getTemplateDetBySecretaryTemplate']);
+    Route::get('/file/{idStudent}/{idTemplateDet}', [ManageFileController::class, 'getFilesByStudentFolder']);
 });

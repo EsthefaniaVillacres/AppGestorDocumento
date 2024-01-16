@@ -34,6 +34,7 @@ import { TemplateAdminModule } from './modulos/template-admin/template-admin.mod
 import { ManageAdminModule } from './modulos/manage-admin/manage-admin.module';
 import { SecretaryAdminModule } from './modulos/secretary-admin/secretary-admin.module';
 import { PermissionAdminModule } from './modulos/permission-admin/permission-admin.module';
+import { ManagefileAdminModule } from './modulos/managefile-admin/managefile-admin.module';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { PermissionAdminModule } from './modulos/permission-admin/permission-adm
     TemplateAdminModule,
     ManageAdminModule,
     SecretaryAdminModule,
-    PermissionAdminModule
+    PermissionAdminModule,
+    ManagefileAdminModule
   ],
   exports: [
     PagPrincipalAdminComponent,
