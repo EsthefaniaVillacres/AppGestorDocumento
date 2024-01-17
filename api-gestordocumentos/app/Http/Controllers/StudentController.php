@@ -1,17 +1,34 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Student;
+use App\Services\DesencriptadorService;
+use App\Services\EncriptadorService;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    protected $encriptacionServices;
+    protected $desencriptacionServices;
+    public function __construct(EncriptadorService $encriptacionServices, DesencriptadorService $desencriptacionServices)
+    {
+
+        $this->encriptacionServices = $encriptacionServices;
+        $this->desencriptacionServices = $desencriptacionServices;
+    }
     public function getAll()
     {
         $estudiantes = Student::all();
+        // Desencriptar los campos necesarios
+        foreach ($estudiantes as $estudiante) {
+            $estudiante->Nombre = $this->desencriptacionServices->desencriptar($estudiante->Nombre);
+            $estudiante->Apellido = $this->desencriptacionServices->desencriptar($estudiante->Apellido);
+            
+        }
         return response()->json($estudiantes);
     }
-   
+
     public function getOneById($id)
     {
         try {
@@ -40,6 +57,15 @@ class StudentController extends Controller
                     'errores' => $validador->errors()->all()
                 ], 400);
             }
+            // Encriptar datos
+            $nombreEncriptado = $this->encriptacionServices->aes($request->input('Nombre'));
+            $apellidoEncriptado = $this->encriptacionServices->aes($request->input('Apellido'));
+
+            // Reemplazar los datos originales con los encriptados
+            $request->merge([
+                'Nombre' => $nombreEncriptado,
+                'Apellido' => $apellidoEncriptado,
+            ]);
             $estudiante = Student::create($request->input());
             return response()->json([
                 'estado' => true,

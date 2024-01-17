@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/servicios/api/auth.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent {
+  constructor(public authService: AuthService) {}
+  cerrarSesion(){
+    this.authService.logout().subscribe(result=>{
+      window.location.href='login'
+    })
 
+  }
 }

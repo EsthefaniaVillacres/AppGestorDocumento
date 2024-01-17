@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\DesencriptadorService;
+use App\Services\EncriptadorService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(EncriptadorService::class,function($app){
+            return new EncriptadorService();
+        });
+        $this->app->singleton(DesencriptadorService::class,function($app){
+            return new DesencriptadorService();
+        });
     }
 
     /**

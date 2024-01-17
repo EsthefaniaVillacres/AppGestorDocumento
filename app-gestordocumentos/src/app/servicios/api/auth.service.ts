@@ -28,6 +28,8 @@ private urlApi=config.apiUrl+'/api/auth';
         Authorization: `Bearer ${token}`,
       })
       localStorage.removeItem('token');
+      localStorage.removeItem('dato');
+      localStorage.removeItem('IdPerfil');
       return this.http.get<any>(this.urlApi+'/logout', { headers });
     }
        // Método para registrar

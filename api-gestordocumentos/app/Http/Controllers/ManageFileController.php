@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\DesencriptadorService;
+use App\Services\EncriptadorService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\ManageFile;
 
 class ManageFileController extends Controller
 {
+    protected $encriptacionServices;
+    protected $desencriptacionServices;
+    public function __construct(EncriptadorService $encriptacionServices, DesencriptadorService $desencriptacionServices)
+    {
+
+        $this->encriptacionServices = $encriptacionServices;
+        $this->desencriptacionServices = $desencriptacionServices;
+    }
     public function index()
     {
         $archivos = ManageFile::all();
@@ -86,13 +96,20 @@ class ManageFileController extends Controller
     }
     public function getStudentByCarrers($idCareer)
     {
-        return DB::table('student')
+
+        $students = DB::table('student')
             ->whereIn('Id', function ($query) use ($idCareer) {
                 $query->select('IdStudent')
                     ->from('student_career')
                     ->where('IdCareer', $idCareer);
             })
             ->get();
+        // Desencriptar los campos
+        foreach ($students as $estudiante) {
+            $estudiante->Nombre = $this->desencriptacionServices->desencriptar($estudiante->Nombre);
+            $estudiante->Apellido = $this->desencriptacionServices->desencriptar($estudiante->Apellido);
+        }
+        return response()->json($students);
     }
     public function getTemplatesBySecretaryCareer($idSecretary, $idCareer)
     {
@@ -124,11 +141,11 @@ class ManageFileController extends Controller
             ->where('mc.IdUser', $idSecretary)
             ->get();
     }
-    public function getFilesByStudentFolder($idStudent,$idTemplateDet)
+    public function getFilesByStudentFolder($idStudent, $idTemplateDet)
     {
-        $permisos=ManageFile::where('IdStudent',$idStudent)
-        ->where('IdTemplateDet',$idTemplateDet)
-        ->get();
+        $permisos = ManageFile::where('IdStudent', $idStudent)
+            ->where('IdTemplateDet', $idTemplateDet)
+            ->get();
         return response()->json($permisos);
     }
 }
