@@ -7,15 +7,23 @@
         </ng-template>
 
         <ng-template pTemplate="right">
-            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import"
-                class="mr-2 inline-block"></p-fileUpload>
-            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+            <div class="card flex justify-content-center">
+                <p-toast></p-toast>
+                <label class="custom-file-upload">
+                    <i class="fa-solid fa-download"></i>
+                    <input type="file" (change)="onBasicUploadAuto($event)"/>
+                    Subir archivo
+                  </label>
+                  
+
+            </div>
+            
         </ng-template>
     </p-toolbar>
 
     <p-table #dt [value]="listData" [rows]="10" [paginator]="true"
         [globalFilterFields]="['Cedula', 'Nombre','Apellido','Telefono','Direccion','Correo']"
-        [tableStyle]="{ 'min-width': '75rem' }" [(selection)]="selectedListData" [rowHover]="true" dataKey="id"
+        [tableStyle]="{ 'max-width': '5rem' }" [(selection)]="selectedListData" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} registros"
         [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
@@ -30,15 +38,15 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="code" style="min-width:15rem">Cedula <p-sortIcon field="code"></p-sortIcon></th>
-                <th pSortableColumn="name" style="min-width:15rem">Nombre <p-sortIcon field="name"></p-sortIcon></th>
-                <th pSortableColumn="lastname" style="min-width:15rem">Apellido <p-sortIcon
+                <th pSortableColumn="code" style="min-width:10rem">Cedula <p-sortIcon field="code"></p-sortIcon></th>
+                <th pSortableColumn="name" style="min-width:12rem">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="lastname" style="min-width:12rem">Apellido <p-sortIcon
                         field="lastname"></p-sortIcon></th>
-                <th pSortableColumn="phone" style="min-width:15rem">Telefono <p-sortIcon field="phone"></p-sortIcon>
+                <th pSortableColumn="phone" style="min-width:10rem">Telefono <p-sortIcon field="phone"></p-sortIcon>
                 </th>
-                <th pSortableColumn="address" style="min-width:15rem">Dirección <p-sortIcon
+                <th pSortableColumn="address" style="min-width:10rem">Dirección <p-sortIcon
                         field="address"></p-sortIcon></th>
-                <th pSortableColumn="email" style="min-width:15rem">Correo Electrónico <p-sortIcon
+                <th pSortableColumn="email" style="min-width:10rem">Correo Electrónico <p-sortIcon
                         field="email"></p-sortIcon></th>
                 <th></th>
             </tr>
@@ -70,10 +78,11 @@
     <app-form-student-admin [data]="data" [dataDialog]="dataDialog" (onClick)="hideDialog()"></app-form-student-admin>
 </ng-container>
 <ng-container *ngIf="mostrarCarreras">
-    <app-student-career-admin 
-    [data]="data" 
-    [visible]="visible"
-     (onClick)="hideDialogCarreras()"></app-student-career-admin>
+    <app-student-career-admin [data]="data" [visible]="visible"
+        (onClick)="hideDialogCarreras()"></app-student-career-admin>
 </ng-container>
 
 <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+<div class="card flex justify-content-center progress" *ngIf="progress">
+    <p-progressSpinner></p-progressSpinner>
+</div>

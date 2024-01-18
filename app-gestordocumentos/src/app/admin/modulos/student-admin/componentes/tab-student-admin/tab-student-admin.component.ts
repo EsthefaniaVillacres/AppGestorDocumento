@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { StudentService } from 'src/app/servicios/api/student.service';
 
+import { StudentService } from 'src/app/servicios/api/student.service';
+import * as XLSX from 'xlsx';
+import { read, utils } from 'xlsx';
+
+interface UploadEvent {
+  originalEvent: Event;
+  files: File[];
+}
 @Component({
   selector: 'app-tab-student-admin',
   templateUrl: './tab-student-admin.component.html',
@@ -14,8 +21,11 @@ export class TabStudentAdminComponent {
   data: any
   mostrar: boolean = false
   listData: any
-  visible:boolean=false
+  visible: boolean = false
   mostrarCarreras: boolean = false
+  students: any
+  rowStudent: any
+  progress: boolean = false
   constructor(private studentService: StudentService, private confirmationService: ConfirmationService, private messageService: MessageService) {
 
   }
@@ -61,13 +71,58 @@ export class TabStudentAdminComponent {
       this.getListData()
     })
   }
-  asignedManager(row:any){
-    this.data={...row}
-    this.visible=true
-    this.mostrarCarreras=true
+  asignedManager(row: any) {
+    this.data = { ...row }
+    this.visible = true
+    this.mostrarCarreras = true
   }
-  hideDialogCarreras(){
-    this.visible=false
-    this.mostrarCarreras=false
+  hideDialogCarreras() {
+    this.visible = false
+    this.mostrarCarreras = false
   }
+  onBasicUploadAuto = async ($event: any) => {
+    this.progress = true;
+    const files = $event.target.files;
+  
+    if (files.length) {
+      const file = files[0];
+      const reader = new FileReader();
+  
+      reader.onload = async (event: any) => {
+        const wb = read(event.target.result);
+        const sheets = wb.SheetNames;
+  
+        if (sheets.length) {
+          const rows = utils.sheet_to_json(wb.Sheets[sheets[0]]);
+          this.students = rows;
+        }
+  
+        // Utiliza un bucle for...of para iterar de forma sincrónica
+        for (const element of this.students) {
+          await this.create(element);
+        }
+  
+        this.progress = false;
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Registros agregados correctamente', life: 3000 });
+        this.getListData();
+      };
+  
+      reader.readAsArrayBuffer(file);
+    }
+  };
+  
+  create(row: any): Promise<any> {
+    // Devuelve una promesa desde el método create
+    return new Promise((resolve, reject) => {
+      this.studentService.create(row).subscribe(
+        (result) => {
+          resolve(result);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+  
 }

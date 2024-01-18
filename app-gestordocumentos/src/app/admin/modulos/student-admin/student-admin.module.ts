@@ -28,7 +28,7 @@ import { TabStudentAdminComponent } from './componentes/tab-student-admin/tab-st
 import { FormStudentAdminComponent } from './componentes/form-student-admin/form-student-admin.component';
 import { StudentCareerAdminComponent } from './componentes/student-career-admin/student-career-admin.component';
 import { SplitterModule } from 'primeng/splitter';
-
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
   declarations: [
     PagStudentAdminComponent,
@@ -60,7 +60,8 @@ import { SplitterModule } from 'primeng/splitter';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    SplitterModule
+    SplitterModule,
+    ProgressSpinnerModule
   ],
   exports: [
     PagStudentAdminComponent,

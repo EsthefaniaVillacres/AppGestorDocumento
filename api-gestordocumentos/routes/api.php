@@ -37,6 +37,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('auth/logout', [AuthController::class, 'logout']);
 Route::post('auth/register', [AuthController::class, 'create']);
 Route::post('auth/login', [AuthController::class, 'login']);
+Route::post('students/', [StudentController::class, 'create']);
 Route::middleware(['auth:sanctum'])->group(function () {
     //aqui rutas protegidas
     Route::prefix('perfiles')->group(function () {
@@ -73,7 +74,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::prefix('students')->group(function () {
         Route::get('/', [StudentController::class, 'getAll']);
         Route::get('/{id}', [StudentController::class, 'getOneById']);
-        Route::post('/', [StudentController::class, 'create']);
         Route::put('/{id}', [StudentController::class, 'update']);
         Route::delete('/{id}', [StudentController::class, 'delete']);
     });
