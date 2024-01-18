@@ -4,13 +4,13 @@
             <div class="card flex justify-content-center">
                 <p-dropdown [options]="facultades" [(ngModel)]="selectedFacultad" optionLabel="Nombre"
                     [showClear]="true" placeholder="Selecionar Facultad"></p-dropdown>
-                <button pButton pRipple icon="pi pi-arrow-right" class="p-button-rounded p-button-info"
+                <button pButton pRipple icon="pi pi-arrow-right" class="p-button-rounded p-button-info btnNuevo"
                     (click)="obtenerCarreras()"></button>
             </div>
             <div class="card flex justify-content-center" *ngIf="carreras">
                 <p-dropdown [options]="carreras" [(ngModel)]="selectedCarrera" optionLabel="Nombre" [showClear]="true"
                     placeholder="Seleccionar Carrera"></p-dropdown>
-                <button pButton pRipple icon=" pi pi-arrow-right" class="p-button-rounded p-button-info"
+                <button pButton pRipple icon=" pi pi-arrow-right" class="p-button-rounded p-button-info btnNuevo"
                     (click)="obtenerEstudiantes()"></button>
             </div>
         </div>
@@ -89,9 +89,13 @@
         <div class="contenidoDown">
             <div class="archivos" *ngIf="vistaArchivo">
                 <h4 class="m-0" *ngIf="selectedCarpeta">Archivos de la carpeta: {{selectedCarpeta.NombreCarpeta}}</h4>
-                <div   *ngIf="cargaArchivo">
-                    <input class="file" type="file" (change)="onArchivoSeleccionado($event)">
-                    <button pButton pRipple icon=" pi pi-upload" class="p-button-rounded p-button-info"
+                <div class="managefile"  *ngIf="cargaArchivo">
+                    <label class="custom-file-upload">
+                        <i class="fa-solid fa-download"></i>
+                        <input class="file" type="file" (change)="onArchivoSeleccionado($event)"/>
+                        Cargar archivo
+                      </label>
+                    <button pButton pRipple icon=" pi pi-upload" class="p-button-rounded p-button-info btnNuevo"
                     (click)="subirArchivo()"></button>
                     
                 </div>

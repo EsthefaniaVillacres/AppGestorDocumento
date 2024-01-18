@@ -2,6 +2,7 @@
     <div [ngClass]="{'hide':accesoModo}"  class="contenedor">
         <div  class="info">
             <div class="info-detalle">
+                <img src="/assets/img/uta.png" alt="">
                 <h2>Bienvenido</h2>
                 <p>Para acceder a nuestros beneficios porfavor Inicia sessión</p>
                 <input type="button" (click)="cambiarAcceso()" value="Iniciar Sesión">
@@ -33,9 +34,8 @@
     <div [ngClass]="{'hide':!accesoModo}"  class="contenedor">
         <div class="info">
             <div class="info-detalle">
+                <img src="/assets/img/uta.png" alt="">
                 <h2>Bienvenido</h2>
-                <p>Si aún no eres parte del equipo porfavor registra tus datos, para solicitar un usuario para acceso</p>
-                <input type="button" (click)="cambiarAcceso()" value="Registro">
             </div>
         </div>
         <div class="form-info">
@@ -50,7 +50,7 @@
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" name="pass" placeholder="Contraseña" id="pass"[(ngModel)]="dataLogin.password">
                     </label>
-                    <input type="button"  (click)="ingresar(dataLogin)" value="Login">
+                    <input type="button"  (click)="ingresar(dataLogin)" value="Ingresar">
                 </form>
             </div>
         </div>

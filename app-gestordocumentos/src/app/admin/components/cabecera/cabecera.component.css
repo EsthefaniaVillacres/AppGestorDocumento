@@ -3,7 +3,7 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    background-color: black;
+    background-image: var(--packImagenGradienteCenter);
     color: rgb(255, 255, 255);
 }
 .logo  {

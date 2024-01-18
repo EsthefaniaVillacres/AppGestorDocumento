@@ -23,6 +23,15 @@ export class PagTemplateAdminComponent {
   getListTemplate() {
     this.templateServices.getAll().subscribe(result => {
       this.listTemplate = result
+    },
+    (error) => {
+      // Manejo de errores
+      if (error.status === 401) {
+        console.log('No autorizado. Redirigiendo al inicio de sesión.');
+        window.location.href='login'
+      } else {
+        console.error('Error en la solicitud:', error);
+      }
     })
   }
   getListDetail(id:any,name:string) {
@@ -114,8 +123,9 @@ export class PagTemplateAdminComponent {
   deleteTemplate(row: any) {
     this.confirmationService.confirm({
       message: '¿Esta seguro que desea eliminar ' + row.Nombre + '?',
-      header: 'Confirmación',
+      header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sí',
       accept: () => {
         this.templateServices.deleteCab(row.Id).subscribe(result => {
           this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Registro eliminado', life: 3000 });
@@ -128,8 +138,9 @@ export class PagTemplateAdminComponent {
   deleteDetail(row: any) {
     this.confirmationService.confirm({
       message: '¿Esta seguro que desea eliminar ' + row.NombreCarpeta + '?',
-      header: 'Confirmación',
+      header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sí',
       accept: () => {
         this.templateServices.deleteDet(row.Id).subscribe(result => {
           this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Registro eliminado', life: 3000 });

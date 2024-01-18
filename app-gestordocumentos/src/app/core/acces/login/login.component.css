@@ -33,7 +33,8 @@
 }
 .info-detalle{
     width: 100%;
-    padding: 0 30px;
+    padding:  30px;
+
 }
 
 .info-detalle h2{
@@ -43,6 +44,7 @@
 }
 .info-detalle p{
     margin: 15px 0;
+    
 }
 .info-detalle input{
     background-color: transparent;
@@ -73,11 +75,12 @@
     border-bottom-right-radius: 20px;
 }
 .form-info-detalle{
-    padding: 0 30px;
+    padding: 30px;
 }
 
 .form-info-detalle h2{
     font-size: 2rem;
+    padding: 60px;
 }
 .form-info-detalle p{
     color: gray;

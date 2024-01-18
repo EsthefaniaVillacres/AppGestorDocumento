@@ -40,6 +40,15 @@ export class TabCareerAdminComponent {
     this.careerService.getAllByUser(this.idUser).subscribe(result => {
       this.listData = result
 
+    },
+    (error) => {
+      // Manejo de errores
+      if (error.status === 401) {
+        console.log('No autorizado. Redirigiendo al inicio de sesión.');
+        window.location.href='login'
+      } else {
+        console.error('Error en la solicitud:', error);
+      }
     })
   }
   edit(row: any) {
@@ -50,8 +59,9 @@ export class TabCareerAdminComponent {
   deleteRow(row: any) {
     this.confirmationService.confirm({
       message: '¿Esta seguro que desea eliminar el registro: ' + row.Codigo + '?',
-      header: 'Confirm',
+      header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sí',
       accept: () => {
         this.delete(row)
         this.data = {};

@@ -36,6 +36,15 @@ export class PagPermissionAdminComponent {
     this.userService.getAllByIdPerfil(this.IdPerfil).subscribe(result => {
       this.listSecretaries = result
 
+    },
+    (error) => {
+      // Manejo de errores
+      if (error.status === 401) {
+        console.log('No autorizado. Redirigiendo al inicio de sesión.');
+        window.location.href='login'
+      } else {
+        console.error('Error en la solicitud:', error);
+      }
     })
   }
   showCareerAsigned(row: any) {

@@ -47,14 +47,12 @@ export class MenuComponent {
     this.idPerfil = localStorage.getItem('IdPerfil')
     this.listMenuSuperAdmin = [
       { 'Id': 1, 'Nombre': 'Administradores', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'managers' },
-      { 'Id': 2, 'Nombre': 'Facultades', 'Logo': 'fa-solid fa-building-columns', 'Seleccionado': false, 'route': 'faculties' },
-      { 'Id': 3, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
+      { 'Id': 2, 'Nombre': 'Facultades', 'Logo': 'fa-solid fa-building-columns', 'Seleccionado': false, 'route': 'faculties' }]
     this.listMenuManage = [
-      { 'Id': 1, 'Nombre': 'Secretarias', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'secretaries' },
-      { 'Id': 2, 'Nombre': 'Carreras', 'Logo': 'fa-solid fa-users', 'Seleccionado': false, 'route': 'careers' },
-      { 'Id': 3, 'Nombre': 'Plantillas', 'Logo': 'fa-solid fa-percent', 'Seleccionado': false, 'route': 'templates' },
-      { 'Id': 2, 'Nombre': 'Permisos', 'Logo': 'fa-solid fa-shield-halved', 'Seleccionado': false, 'route': 'permissions' },
-      { 'Id': 4, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
+      { 'Id': 1, 'Nombre': 'Secretarias', 'Logo': 'fa-solid fa-users', 'Seleccionado': false, 'route': 'secretaries' },
+      { 'Id': 2, 'Nombre': 'Carreras', 'Logo': 'fa-solid fa-graduation-cap', 'Seleccionado': false, 'route': 'careers' },
+      { 'Id': 3, 'Nombre': 'Plantillas', 'Logo': 'fa-solid fa-folder-tree', 'Seleccionado': false, 'route': 'templates' },
+      { 'Id': 2, 'Nombre': 'Permisos', 'Logo': 'fa-solid fa-shield-halved', 'Seleccionado': false, 'route': 'permissions' }]
     this.listMenuSecretary = [
       { 'Id': 1, 'Nombre': 'Estudiantes', 'Logo': 'fa-solid fa-business-time', 'Seleccionado': false, 'route': 'students' },
       { 'Id': 2, 'Nombre': 'Gestión de Archivos', 'Logo': 'fa-solid fa-file-shield', 'Seleccionado': false, 'route': 'files' }]
@@ -62,10 +60,9 @@ export class MenuComponent {
     this.listaMenu = [
       { 'Id': 1, 'Nombre': 'Usuarios', 'Logo': 'fa-regular fa-hand', 'Seleccionado': false, 'route': 'users' },
       { 'Id': 2, 'Nombre': 'Facultades', 'Logo': 'fa-solid fa-building-columns', 'Seleccionado': false, 'route': 'faculties' },
-      { 'Id': 3, 'Nombre': 'Carreras', 'Logo': 'fa-solid fa-users', 'Seleccionado': false, 'route': 'careers' },
+      { 'Id': 3, 'Nombre': 'Carreras', 'Logo': 'fa-solid fa-graduation-cap', 'Seleccionado': false, 'route': 'careers' },
       { 'Id': 4, 'Nombre': 'Estudiantes', 'Logo': 'fa-solid fa-business-time', 'Seleccionado': false, 'route': 'students' },
-      { 'Id': 5, 'Nombre': 'Plantillas', 'Logo': 'fa-solid fa-percent', 'Seleccionado': false, 'route': 'templates' },
-      { 'Id': 6, 'Nombre': 'Cargos Indirectos', 'Logo': 'fa-solid fa-file-invoice-dollar', 'Seleccionado': false, 'route': 'cargos' }]
+      { 'Id': 5, 'Nombre': 'Plantillas', 'Logo': 'fa-solid fa-folder-tree', 'Seleccionado': false, 'route': 'templates' }]
     this.llenarListaMenu()
 
   }

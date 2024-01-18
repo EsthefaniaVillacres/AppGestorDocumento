@@ -47,6 +47,15 @@ export class TabStudentAdminComponent {
     this.studentService.getAll().subscribe(result => {
       this.listData = result
 
+    },
+    (error) => {
+      // Manejo de errores
+      if (error.status === 401) {
+        console.log('No autorizado. Redirigiendo al inicio de sesión.');
+        window.location.href='login'
+      } else {
+        console.error('Error en la solicitud:', error);
+      }
     })
   }
   edit(row: any) {
@@ -57,8 +66,9 @@ export class TabStudentAdminComponent {
   deleteRow(row: any) {
     this.confirmationService.confirm({
       message: '¿Esta seguro que desea eliminar el registro: ' + row.Cedula + '?',
-      header: 'Confirm',
+      header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sí',
       accept: () => {
         this.delete(row)
         this.data = {};

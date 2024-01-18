@@ -2,19 +2,35 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
-body{
+
+body {
     margin: 0;
     padding: 0;
 }
-:root{
-    --packColor_back_1:#2f4f4f;
-    --packColor_color_1:white;
 
-    --packColor_back_2:white;
-    --packColor_color_2:black;
+:root {
+    --packColor_back_1: #AD272E;
+    --packColor_color_1: white;
+    --packColor_back_2: white;
+    --packColor_color_2: black;
+    --packColor_back_3: #f5f5f5;
+    --packColor_back_4: #434343;
+    --packColor_hover_1: #AD272E;
+    --packColor_color_3: rgb(100, 98, 98);
+    --packImagenGradiente: linear-gradient(120deg, #ff0000 0%, #cc0000 10%, #990000 20%, #800000 30%, #660000 40%, #4d0000 50%, #330000 60%, #1a0000 70%, #000000 80%);
+    --packImagenGradienteCenter: linear-gradient(120deg, #660000 0%, #800000 25%, #990000 50%, #800000 75%, #660000 100%);
+    --packImagenGradienteInv: linear-gradient(120deg, #000000 0%, #1a0000 10%, #330000 20%, #4d0000 30%, #660000 40%, #800000 50%, #990000 60%, #cc0000 70%, #ff0000 80%);
+    --packImagenGradienteDark: linear-gradient(120deg, #330000 0%, #660000 25%, #990000 50%, #660000 75%, #330000 100%);
+    --backgroungPanel: rgb(245, 245, 245);
 
-    --packColor_back_3:#f5f5f5;
-    --packColor_color_3:rgb(100, 98, 98);
-    --packImagenGradiente:linear-gradient(120deg, #4ab18d 0, #3ba489 10%, #2e9583 20%, #258379 30%, #216f6b 40%, #1f5959 50%, #1e4446 60%, #1c3235 70%, #182325 80%, #141718 90%, #0e0a08 100%);
-    --backgroungPanel:rgb(245, 245, 245);
+}
+
+.btnNuevo {
+    background-color: var(--packColor_back_4);
+    border: none;
+
+}
+
+.btnNuevo:hover {
+    background-color: var(--packColor_hover_1);
 }

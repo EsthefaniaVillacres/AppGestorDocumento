@@ -14,8 +14,8 @@ export class TabSecretaryAdminComponent {
   data: any
   mostrar: boolean = false
   listData: any
-  IdPerfil:any=localStorage.getItem('IdPerfil')
-  visible:boolean=false
+  IdPerfil: any = localStorage.getItem('IdPerfil')
+  visible: boolean = false
   mostrarCarreras: boolean = false
   constructor(private userService: UserService, private confirmationService: ConfirmationService, private messageService: MessageService) {
 
@@ -38,7 +38,16 @@ export class TabSecretaryAdminComponent {
     this.userService.getAllByIdPerfil(this.IdPerfil).subscribe(result => {
       this.listData = result
 
-    })
+    },
+      (error) => {
+        // Manejo de errores
+        if (error.status === 401) {
+          console.log('No autorizado. Redirigiendo al inicio de sesión.');
+          window.location.href='login'
+        } else {
+          console.error('Error en la solicitud:', error);
+        }
+      })
   }
   edit(row: any) {
     this.mostrar = true
@@ -48,8 +57,9 @@ export class TabSecretaryAdminComponent {
   deleteRow(row: any) {
     this.confirmationService.confirm({
       message: '¿Esta seguro que desea eliminar el registro: ' + row.name + '?',
-      header: 'Confirm',
+      header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sí',
       accept: () => {
         this.delete(row)
         this.data = {};
@@ -62,13 +72,13 @@ export class TabSecretaryAdminComponent {
       this.getListData()
     })
   }
-  asignedManager(row:any){
-    this.data={...row}
-    this.visible=true
-    this.mostrarCarreras=true
+  asignedManager(row: any) {
+    this.data = { ...row }
+    this.visible = true
+    this.mostrarCarreras = true
   }
-  hideDialogManage(){
-    this.visible=false
-    this.mostrarCarreras=false
+  hideDialogManage() {
+    this.visible = false
+    this.mostrarCarreras = false
   }
 }
