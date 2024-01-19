@@ -51,8 +51,15 @@
                         <input type="password" name="pass" placeholder="Contraseña" id="pass"[(ngModel)]="dataLogin.password">
                     </label>
                     <input type="button"  (click)="ingresar(dataLogin)" value="Ingresar">
+                    <div class="toolbar-spacer"></div>
+                    <p>Identifíquese usando su cuenta en:</p>
+                    <input type="button"  *ngIf="!loginDisplay" (click)="login()" value="Microsoft Office 365">
                 </form>
             </div>
         </div>
     </div>
 </div>
+<div class="container">
+    <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+    <router-outlet *ngIf="!isIframe"></router-outlet>
+  </div>

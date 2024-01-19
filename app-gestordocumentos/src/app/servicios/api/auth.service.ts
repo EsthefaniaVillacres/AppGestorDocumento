@@ -13,6 +13,9 @@ private urlApi=config.apiUrl+'/api/auth';
    public login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post<any>(`${this.urlApi}/login`, credentials);
   }
+  public login365(credentials: { email: string}): Observable<any> {
+    return this.http.post<any>(`${this.urlApi}/login365`, credentials);
+  }
     // Método para almacenar el token
     public setToken(token: string): void {
       localStorage.setItem('token', token);

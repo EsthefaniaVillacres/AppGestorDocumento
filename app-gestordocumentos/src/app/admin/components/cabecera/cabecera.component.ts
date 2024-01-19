@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MsalService } from '@azure/msal-angular';
 import { AuthService } from 'src/app/servicios/api/auth.service';
 
 @Component({
@@ -7,11 +8,10 @@ import { AuthService } from 'src/app/servicios/api/auth.service';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent {
-  constructor(public authService: AuthService) {}
+  constructor( private authService: MsalService) {}
   cerrarSesion(){
-    this.authService.logout().subscribe(result=>{
-      window.location.href='login'
-    })
-
+      this.authService.logoutPopup({
+        mainWindowRedirectUri: "/"
+      });
   }
 }

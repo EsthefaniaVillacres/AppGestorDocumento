@@ -34,3 +34,6 @@ body {
 .btnNuevo:hover {
     background-color: var(--packColor_hover_1);
 }
+.container {
+    margin: 1%;
+  }

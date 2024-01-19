@@ -88,3 +88,6 @@ ng g s servicios/api/managefile
 ng g m admin/modulos/managefile-admin --routing
 ng g c admin/modulos/managefile-admin/pag-managefile-admin --export
 ng generate component  admin/modulos/managefile-admin/archivo-visor --export
+
+---- autentificacion
+npm install @azure/msal-browser @azure/msal-angular

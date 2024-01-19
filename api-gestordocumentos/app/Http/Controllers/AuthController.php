@@ -64,6 +64,27 @@ class AuthController extends Controller
         ], 200);
     }
 
+    public function login365(Request $request)
+    {
+        $reglas = [
+            'email' => 'required|string|email|max:100'
+        ];
+        $validador = \Validator::make($request->input(), $reglas);
+        if ($validador->fails()) {
+            return response()->json([
+                'estado' => false,
+                'errores' => $validador->errors()->all()
+            ], 400);
+        }
+        $user = User::where('email', $request->email)->first();
+        return response()->json([
+            'estado' => true,
+            'mensaje' => 'Usuario logiado correctamente',
+            'dato' => $user,
+            'token' => $user->createToken('API TOKEN')->plainTextToken
+        ], 200);
+    }
+
     public function logout()
     {        
         return response()->json([
